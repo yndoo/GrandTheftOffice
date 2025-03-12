@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 제네릭 싱글톤 
+/// </summary>
+/// <typeparam name="T">싱글톤 인스턴스로 만들 클래스 타입</typeparam>
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
