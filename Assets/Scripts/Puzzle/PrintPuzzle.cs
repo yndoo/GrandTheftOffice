@@ -4,24 +4,45 @@ using UnityEngine;
 
 public class PrintPuzzle : Puzzle, IPuzzleCheckable
 {
-    public GameObject[] ink; // 배치된 잉크 오브젝트
-    public Color targetColor; // 목표 색상
-    public GameObject paperPrefab; // 출력할 종이 프리팹
-    public Transform printPoint; // 종이가 생성될 위치
+    [SerializeField]private List<Transform> inkPositions; // 감지할 위치 리스트
+    [SerializeField] private Color targetColor; // 목표 색상
+    [SerializeField] private GameObject paperPrefab; // 출력할 종이 프리팹
+    [SerializeField] private Transform printPoint; // 종이가 생성될 위치
 
     private Color combinedColor; // 조합된 색상
 
-    // 잉크 오브젝트들의 색상을 찾아서 조합
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CheckAndPrint();
+        }
+    }
+
+    private void CheckAndPrint()
+    {
+        if (IsCorrect())
+        {
+            Debug.Log($"IsCorrect: {combinedColor}");
+        }
+    }
+
+    // 특정 위치에 있는 Ink 스크립트를 감지하고 색상 조합
     public void FindInk()
     {
-        combinedColor = Color.black; // 초기화 (RGB 조합을 위해 블랙부터 시작)
+        combinedColor = Color.black; // 초기화
 
-        foreach (GameObject obj in ink)
+        foreach (Transform pos in inkPositions)
         {
-            Renderer objRenderer = obj.GetComponent<Renderer>();
-            if (objRenderer != null)
+            Collider[] colliders = Physics.OverlapSphere(pos.position, 0.1f); // 작은 범위 내 충돌 감지
+
+            foreach (Collider col in colliders)
             {
-                combinedColor += objRenderer.material.color; // RGB 색 조합
+                Ink inkScript = col.GetComponent<Ink>();
+                if (inkScript != null)
+                {
+                    combinedColor += inkScript.GetColor(); // Ink에서 색상을 가져와 조합
+                }
             }
         }
 
@@ -36,7 +57,6 @@ public class PrintPuzzle : Puzzle, IPuzzleCheckable
     {
         FindInk(); // 색상 조합 먼저 수행
 
-        // 목표 색상과 비교 (오차 범위 설정 가능)
         float tolerance = 0.05f; // 허용 오차
         bool isCorrect = Mathf.Abs(combinedColor.r - targetColor.r) < tolerance &&
                          Mathf.Abs(combinedColor.g - targetColor.g) < tolerance &&
@@ -57,6 +77,5 @@ public class PrintPuzzle : Puzzle, IPuzzleCheckable
         {
             Instantiate(paperPrefab, printPoint.position, Quaternion.identity);
         }
-        Debug.Log("Printed!");
     }
 }
