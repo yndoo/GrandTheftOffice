@@ -13,7 +13,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             if (_instance == null)
             {
                 _instance = FindObjectOfType<T>();
-                // Find 후에도 없으면 생성해주기
                 if (_instance == null)
                 {
                     GameObject singletonObj = new GameObject(typeof(T).Name);
