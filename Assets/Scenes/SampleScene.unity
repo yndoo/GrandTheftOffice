@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 1289248987}
   - component: {fileID: 1289248991}
   - component: {fileID: 1289248990}
-  - component: {fileID: 1289248989}
+  - component: {fileID: 1289248992}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -533,27 +533,6 @@ CapsuleCollider:
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
---- !u!114 &1289248989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289248985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9658ce21b724bc46b7e188a963a512d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpPower: 80
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 55
-  cameraContainer: {fileID: 1035810183}
-  minXLook: -85
-  maxXLook: 85
-  lookSensitivity: 0.1
 --- !u!114 &1289248990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,8 +585,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1289248989}
-        m_TargetAssemblyTypeName: PlaterController, Assembly-CSharp
+      - m_Target: {fileID: 1289248992}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -622,8 +601,8 @@ MonoBehaviour:
     m_ActionName: New action map/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1289248989}
-        m_TargetAssemblyTypeName: PlaterController, Assembly-CSharp
+      - m_Target: {fileID: 1289248992}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnLook
         m_Mode: 0
         m_Arguments:
@@ -638,8 +617,8 @@ MonoBehaviour:
     m_ActionName: New action map/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1289248989}
-        m_TargetAssemblyTypeName: PlaterController, Assembly-CSharp
+      - m_Target: {fileID: 1289248992}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -665,6 +644,27 @@ MonoBehaviour:
   m_DefaultActionMap: New action map
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1289248992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289248985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471839d827e646347bdf41d13fb99dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpPower: 80
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  cameraContainer: {fileID: 1035810183}
+  minXLook: -85
+  maxXLook: 85
+  lookSensitivity: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
