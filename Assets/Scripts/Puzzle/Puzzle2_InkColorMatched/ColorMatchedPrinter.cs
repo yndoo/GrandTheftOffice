@@ -67,7 +67,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
         return isCorrect;
     }
 
-    // 정답이면 종이 출력
+   
     private void PrintPaper()
     {
         if (paperPrefab != null && printPoint != null)
