@@ -4,68 +4,66 @@ using UnityEngine;
 
 public class CCTV : Enemy
 {
-    // 회전 속도
-    public float rotationSpeed = 20f;
-    // 회전 범위
-    private float rotationAngle = 45f; // 45도 왼쪽에서 오른쪽으로
-
-    // 현재 회전 각도
+    // 회전 관련
+    public float rotationSpeed = 10f;
+    private float rotationAngle = 45f;
     private float currentRotation = 0f;
-
-    // 회전 방향: 1 = 시계방향, -1 = 반시계방향
     private int rotationDirection = 1;
+
+    // 감지 관련
+    public float detectionRadius = 1f;
+    public float detectionDistance = 5f;
+    public float detectionAngle = 45f;
+
+    private CCTVFieldOfView fov; // 🔥 CCTVFieldOfView 추가
 
     void Start()
     {
-        // CCTV 초기화 설정 (필요한 초기 설정이 있을 경우)
+        fov = GetComponent<CCTVFieldOfView>(); // CCTVFieldOfView 가져오기
+        if (fov == null)
+        {
+            Debug.LogWarning("CCTVFieldOfView 컴포넌트가 없음! 자동으로 추가합니다.");
+            fov = gameObject.AddComponent<CCTVFieldOfView>(); // 없으면 추가
+        }
     }
 
-    // 감지 기능 구현
     public override void Detect()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, detectionRange))
+        Vector3 cctvDirection = transform.right; // CCTV가 감지할 방향
+
+        if (Physics.SphereCast(transform.position, detectionRadius, cctvDirection, out hit, detectionDistance))
         {
             if (hit.collider.CompareTag(playerTag))
             {
-                OnDetect();
+                Vector3 directionToTarget = (hit.collider.transform.position - transform.position).normalized;
+
+                if (Vector3.Angle(cctvDirection, directionToTarget) < detectionAngle * 0.5f)
+                {
+                    OnDetect();
+                }
             }
         }
     }
 
-    // 회전 기능 구현
     public override void Rotate()
     {
-        // 시야 회전
         currentRotation += rotationSpeed * rotationDirection * Time.deltaTime;
 
-        // 회전 범위 내에서만 회전하도록 설정
         if (currentRotation >= rotationAngle || currentRotation <= -rotationAngle)
         {
-            rotationDirection *= -1;  // 회전 방향 반전
+            rotationDirection *= -1;
         }
 
-        // CCTV 회전
-        transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, currentRotation, transform.rotation.eulerAngles.z);
     }
 
-    // 플레이어 감지 시 실행할 동작
     private void OnDetect()
     {
-        // GameManager 에서 GameOver 함수 호출
         GameManager.Instance.GameOver();
         Debug.Log("CCTV detected the player!");
-        // 추가적인 플레이어 감지 후 처리할 작업을 여기에 추가
     }
 
-    // 추가적인 행동 (예: 공격, 이동 등)을 구현할 수 있음
-    public override void Attack()
-    {
-        // CCTV가 공격하는 방식(만약 있으면)
-    }
-
-    public override void Move()
-    {
-        // CCTV가 이동하는 방식(만약 있으면)
-    }
+    public override void Attack() { }
+    public override void Move() { }
 }
