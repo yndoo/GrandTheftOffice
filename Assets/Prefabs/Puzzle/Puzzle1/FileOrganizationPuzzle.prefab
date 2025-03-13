@@ -49,7 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0924d91de5a3784bae3cf23a4f1d39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reward: {fileID: 8452574377248066727}
+  Reward:
+    RewardHint: {fileID: 8452574377248066727}
+    Score: 20
 --- !u!65 &2786804817573052373
 BoxCollider:
   m_ObjectHideFlags: 0

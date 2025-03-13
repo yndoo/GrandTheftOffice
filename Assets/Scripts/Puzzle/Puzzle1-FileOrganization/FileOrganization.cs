@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FileOrganization : MonoBehaviour, IPuzzleCheckable
+public class FileOrganization : Puzzle, IPuzzleCheckable
 {
-    public GameObject Reward;
+    //public GameObject Reward;
 
     List<MatchingZone> matchingZones;
 
@@ -33,16 +33,16 @@ public class FileOrganization : MonoBehaviour, IPuzzleCheckable
             matchingZones[i].gameObject.SetActive(false); // 매칭존 끄기
         }
  
-        GetReward();
+        Complete();
 
         return true;
     }
 
     /// <summary>
-    /// 퍼즐 완료 보상 (ex: 힌트 오브젝트, 점수, 완료 UI 등)
+    /// 퍼즐 완료 UI, 보상 지급 등
     /// </summary>
-    private void GetReward()
+    private void Complete()
     {
-        Reward.SetActive(true);
+        GetReward();
     }
 }
