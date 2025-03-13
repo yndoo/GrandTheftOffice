@@ -9,6 +9,9 @@ public enum EFileType
     Black
 }
 
+/// <summary>
+/// 정답 Matching이 필요한 퍼즐에 사용 
+/// </summary>
 public abstract class MatchingSystem : MonoBehaviour
 {
     public bool IsMatched { get; set; }
@@ -18,6 +21,10 @@ public abstract class MatchingSystem : MonoBehaviour
         Matching(other);
     }
 
+    /// <summary>
+    /// 정답인지 체크하는 함수, 트리거 이벤트 발생 시 실행되는 함수
+    /// </summary>
+    /// <param name="other">트리거 된 충돌체 정보</param>
     public abstract void Matching(Collider other);
 }
 
