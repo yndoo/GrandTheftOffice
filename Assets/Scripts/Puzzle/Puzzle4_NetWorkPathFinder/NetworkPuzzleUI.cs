@@ -140,13 +140,13 @@ public class NetworkPuzzleUI : MonoBehaviour
         // 퍼즐 상태 확인
         if (puzzleController.IsCorrect())
         {
-            statusText.text = "퍼즐 완료!";
+            statusText.text = "Puzzle Sucess!";
             statusText.color = Color.green;
             puzzleController.GetReward();
         }
         else
         {
-            statusText.text = "진행중...";
+            statusText.text = "PlayIng...";
             statusText.color = Color.white;
         }
     }
@@ -193,3 +193,4 @@ public class NetworkPuzzleUI : MonoBehaviour
         statusText.color = Color.white;
     }
 }
+
