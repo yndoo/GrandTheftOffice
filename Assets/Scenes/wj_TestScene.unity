@@ -240,6 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 121341793}
   - component: {fileID: 121341794}
+  - component: {fileID: 121341795}
   m_Layer: 0
   m_Name: InkPos
   m_TagString: Untagged
@@ -283,6 +284,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &121341795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121341792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a433894e719c93439f893d35ee5dbbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193270468
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 193270469}
   - component: {fileID: 193270470}
+  - component: {fileID: 193270471}
   m_Layer: 0
   m_Name: InkPos
   m_TagString: Untagged
@@ -336,6 +350,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &193270471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193270468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a433894e719c93439f893d35ee5dbbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &247678026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1982791905}
   - component: {fileID: 1982791906}
+  - component: {fileID: 1982791907}
   m_Layer: 0
   m_Name: InkPos
   m_TagString: Untagged
@@ -1299,6 +1326,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1982791907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982791904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a433894e719c93439f893d35ee5dbbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1987208177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,7 +1399,7 @@ GameObject:
   - component: {fileID: 23214195404547498}
   - component: {fileID: 65006284743787956}
   m_Layer: 0
-  m_Name: Printer A
+  m_Name: Printer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1411,10 +1450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8674e2b576bcb48904358f9c5d7225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkPositions:
-  - {fileID: 1982791905}
-  - {fileID: 193270469}
-  - {fileID: 121341793}
+  inkZone:
+  - {fileID: 1982791907}
+  - {fileID: 193270471}
+  - {fileID: 121341795}
   targetColor: {r: 1, g: 0, b: 1, a: 0}
   paperPrefab: {fileID: 7627828872069064435, guid: 70d4d5016aacc214db8b5296b6a18b09, type: 3}
   printPoint: {fileID: 1987208178}
