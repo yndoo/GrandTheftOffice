@@ -9,17 +9,28 @@ public enum EFileType
     Black
 }
 
-public class MatchingZone : MonoBehaviour
+public abstract class MatchingSystem : MonoBehaviour
+{
+    public bool IsMatched { get; set; }
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        Matching(other);
+    }
+
+    public abstract void Matching(Collider other);
+}
+
+public class MatchingZone : MatchingSystem
 {
     [Header("매칭할 파일 타입(컬러)")]
     public EFileType Type;
-    public bool IsMatched { get; set; }
 
     private FileToOrganize CurrentFile;
 
-    private void OnTriggerEnter(Collider other)
+    public override void Matching(Collider other)
     {
-        if(other.TryGetComponent<FileToOrganize>(out FileToOrganize file))
+        if (other.TryGetComponent<FileToOrganize>(out FileToOrganize file))
         {
             // 정답이 아닌 파일이어도 부착 시켜주기
             CurrentFile = file;
