@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
-    public ItemData item;
+   /* public ItemData item;
 
     public UIInventory inventory;
 
@@ -21,5 +21,5 @@ public class ItemSlot : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 }
