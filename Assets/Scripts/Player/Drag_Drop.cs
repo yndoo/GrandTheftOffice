@@ -6,9 +6,9 @@ using UnityEngine;
 public class Drag_Drop : MonoBehaviour
 
 {
-    /*public GameObject 
+    public GameObject 
     public void OnMouseDrag()
     {
         
-    }*/
+    }
 }
