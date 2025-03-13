@@ -4,68 +4,83 @@ using UnityEngine;
 
 public class CCTV : Enemy
 {
-    // 회전 속도
-    public float rotationSpeed = 20f;
-    // 회전 범위
-    private float rotationAngle = 45f; // 45도 왼쪽에서 오른쪽으로
+    // 회전 관련
+    public float rotationSpeed = 30f;
+    private float rotationAngle = 45f;
+    private float initialRotation;
 
-    // 현재 회전 각도
-    private float currentRotation = 0f;
+    // 감지 관련
+    public float detectionRadius = 0.5f; // 감지 범위 반경
+    public float detectionDistance = 5f; // 감지 거리
+    public float detectionAngle = 45f;   // 시야각
 
-    // 회전 방향: 1 = 시계방향, -1 = 반시계방향
-    private int rotationDirection = 1;
+    private CCTVFieldOfView fov; // 🔥 CCTVFieldOfView 참조
 
     void Start()
     {
-        // CCTV 초기화 설정 (필요한 초기 설정이 있을 경우)
+        fov = GetComponent<CCTVFieldOfView>();
+        if (fov == null)
+        {
+            Debug.LogWarning("CCTVFieldOfView 컴포넌트가 없음! 자동으로 추가합니다.");
+            fov = gameObject.AddComponent<CCTVFieldOfView>();
+        }
+
+        // FOV 설정 동기화
+        fov.detectionRange = detectionDistance;
+        fov.detectionAngle = detectionAngle;
+
+        // 현재 배치된 방향을 기준으로 회전 시작
+        initialRotation = transform.eulerAngles.y;
     }
 
-    // 감지 기능 구현
+    public override void Rotate()
+    {
+        // 기준 방향에서 좌우 ±rotationAngle 까지 회전
+        float targetRotation = initialRotation + Mathf.Sin(Time.time * rotationSpeed * Mathf.Deg2Rad) * rotationAngle;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, targetRotation, transform.rotation.eulerAngles.z);
+    }
+
     public override void Detect()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, detectionRange))
+        UpdateFOV();
+        Collider[] hits = Physics.OverlapSphere(transform.position, detectionDistance);
+
+        foreach (Collider hit in hits)
         {
-            if (hit.collider.CompareTag(playerTag))
+            if (hit.CompareTag(playerTag))
             {
-                OnDetect();
+                Vector3 directionToTarget = (hit.transform.position - transform.position).normalized;
+                float angleToTarget = Vector3.Angle(transform.right, directionToTarget); // CCTV가 보는 방향 기준
+
+                if (angleToTarget < detectionAngle * 0.5f)
+                {
+                    RaycastHit raycastHit;
+                    if (Physics.Raycast(transform.position, directionToTarget, out raycastHit, detectionDistance))
+                    {
+                        if (raycastHit.collider.CompareTag(playerTag))
+                        {
+                            OnDetect();
+                        }
+                    }
+                }
             }
         }
     }
 
-    // 회전 기능 구현
-    public override void Rotate()
+    private void UpdateFOV()
     {
-        // 시야 회전
-        currentRotation += rotationSpeed * rotationDirection * Time.deltaTime;
-
-        // 회전 범위 내에서만 회전하도록 설정
-        if (currentRotation >= rotationAngle || currentRotation <= -rotationAngle)
+        if (fov != null)
         {
-            rotationDirection *= -1;  // 회전 방향 반전
+            fov.transform.rotation = transform.rotation; // 회전 동기화
         }
-
-        // CCTV 회전
-        transform.rotation = Quaternion.Euler(0, currentRotation, 0);
     }
 
-    // 플레이어 감지 시 실행할 동작
     private void OnDetect()
     {
-        // GameManager 에서 GameOver 함수 호출
         GameManager.Instance.GameOver();
         Debug.Log("CCTV detected the player!");
-        // 추가적인 플레이어 감지 후 처리할 작업을 여기에 추가
     }
 
-    // 추가적인 행동 (예: 공격, 이동 등)을 구현할 수 있음
-    public override void Attack()
-    {
-        // CCTV가 공격하는 방식(만약 있으면)
-    }
-
-    public override void Move()
-    {
-        // CCTV가 이동하는 방식(만약 있으면)
-    }
+    public override void Attack() { }
+    public override void Move() { }
 }
