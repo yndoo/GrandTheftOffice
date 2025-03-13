@@ -1,27 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class Drag_Drop : MonoBehaviour
 
 {
-
     public GameObject itemObject;
     public PlayerController controller;
-    public Player player;
-    
-    public ItemData itemData;
+    public Camera camera;
 
     public LayerMask oblayer;
-    
-     
-    public void OnMouseDrag()
+
+    private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, oblayer))
         {
-            RaycastHit
+            Debug.Log("상호작용레이어 포착!");
+            if(hit.transform.CompareTag("obLayer"))
+            {
+                GetComponent<itemobject>().
+                hit.
+            }
         }
+
     }
 }
