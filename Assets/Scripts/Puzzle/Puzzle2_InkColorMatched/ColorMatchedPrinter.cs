@@ -6,8 +6,6 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
 {
     [SerializeField] private List<MatchingSystem> inkZone;
     [SerializeField] private Color targetColor;
-    [SerializeField] private GameObject paperPrefab;
-    [SerializeField] private Transform printPoint;
 
     private Color combinedColor;
 
@@ -61,18 +59,9 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
 
         if (isCorrect)
         {
-            PrintPaper(); // 정답이면 종이 생성
+            GetReward(); // 정답이면 종이 생성
         }
 
         return isCorrect;
-    }
-
-   
-    private void PrintPaper()
-    {
-        if (paperPrefab != null && printPoint != null)
-        {
-            Instantiate(paperPrefab, printPoint.position, Quaternion.identity);
-        }
     }
 }
