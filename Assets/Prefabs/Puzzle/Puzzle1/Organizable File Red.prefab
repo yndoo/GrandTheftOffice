@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9067119308567987117}
   - component: {fileID: 8070418695064005052}
   - component: {fileID: 720523275560038435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Organizable File Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,8 +107,7 @@ GameObject:
   - component: {fileID: 76135898569440280}
   - component: {fileID: 3148604715098783644}
   - component: {fileID: 2233848024194417973}
-  - component: {fileID: 8638576532007144233}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Folder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,24 +179,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8638576532007144233
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468010847271259368}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.00093390467, y: 0.002644697, z: 0.0032658}
-  m_Center: {x: -0.000110971116, y: 0.00018768791, z: 0.0018459324}
