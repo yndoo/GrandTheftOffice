@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 135635753}
   - component: {fileID: 135635752}
   - component: {fileID: 135635751}
+  - component: {fileID: 135635759}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -159,7 +160,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemslot: {fileID: 0}
+  inventory: {fileID: 0}
+  index: 0
+  equipped: 0
+  quantity: 0
 --- !u!114 &135635752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +391,18 @@ Transform:
   - {fileID: 1063699601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135635759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135635750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488d1beedb3b63b4c98e875371e08fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &142255410
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +934,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
-  itemslot: {fileID: 0}
+  inventory: {fileID: 0}
+  index: 0
+  equipped: 0
+  quantity: 0
 --- !u!1001 &1584893469
 PrefabInstance:
   m_ObjectHideFlags: 0
