@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FileOrganization : Puzzle, IPuzzleCheckable
 {
-    //public GameObject Reward;
-
     List<MatchingZone> matchingZones;
 
     private void Awake()
