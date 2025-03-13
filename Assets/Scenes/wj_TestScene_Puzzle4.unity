@@ -335,25 +335,34 @@ MonoBehaviour:
     Score: 40
   nodes:
   - id: 0
-    connections: 0100000002000000
+    connections: 0100000003000000
     isActive: 0
   - id: 1
-    connections: 0000000003000000
+    connections: 000000000200000004000000
     isActive: 0
   - id: 2
-    connections: 000000000300000004000000
+    connections: 0100000005000000
     isActive: 0
   - id: 3
-    connections: 010000000200000005000000
+    connections: 000000000400000006000000
     isActive: 0
   - id: 4
-    connections: 0200000005000000
+    connections: 01000000030000000500000007000000
     isActive: 0
   - id: 5
-    connections: 0300000004000000
+    connections: 020000000400000008000000
+    isActive: 0
+  - id: 6
+    connections: 0300000007000000
+    isActive: 0
+  - id: 7
+    connections: 040000000600000008000000
+    isActive: 0
+  - id: 8
+    connections: 0500000007000000
     isActive: 0
   startNodeIds: 00000000
-  targetNodeIds: 05000000
+  targetNodeIds: 0600000007000000
 --- !u!4 &390538969
 Transform:
   m_ObjectHideFlags: 0
@@ -862,7 +871,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 914200138}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

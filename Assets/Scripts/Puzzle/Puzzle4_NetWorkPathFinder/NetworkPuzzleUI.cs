@@ -189,7 +189,7 @@ public class NetworkPuzzleUI : MonoBehaviour
     {
         puzzleController.ResetPuzzle();
         UpdateUI();
-        statusText.text = "퍼즐 리셋됨";
+        statusText.text = "Puzzle Resset";
         statusText.color = Color.white;
     }
 }

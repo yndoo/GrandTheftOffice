@@ -3,21 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-// 네트워크 노드 클래스
-[System.Serializable]
-public class NetworkNode
-{
-    public int id;
-    public List<int> connections = new List<int>(); // 연결된 노드 ID 목록
-    public bool isActive = false;
-
-    // 노드가 활성화되었는지 확인
-    public bool IsConnected(HashSet<int> activeNodes)
-    {
-        // 연결된 노드 중 하나라도 활성화되어 있으면 true
-        return connections.Any(nodeId => activeNodes.Contains(nodeId));
-    }
-}
 
 public class NetworkPuzzle : Puzzle, IPuzzleCheckable
 {
@@ -36,63 +21,90 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
             nodes.Find(n => n.id == nodeId).isActive = true;
         }
     }
-
-    // 노드 활성화/비활성화 토글
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CheckNodeConnections();
+        }
+    }
     public void ToggleNode(int nodeId)
     {
+        Debug.Log("노드 토글: " + nodeId);
+
         NetworkNode node = nodes.Find(n => n.id == nodeId);
+        Debug.Log($"노드 {nodeId} 연결 상태: {node.IsConnected(activeNodes, nodes)}");
         if (node == null) return;
 
-        // 노드가 이미 활성화된 노드와 연결되어 있거나, 시작 노드인 경우에만 토글 가능
-        if (node.IsConnected(activeNodes) || startNodeIds.Contains(nodeId))
+        // 노드 활성화 시
+        if (!node.isActive)
         {
-            node.isActive = !node.isActive;
-
-            if (node.isActive)
+            if (node.IsConnected(activeNodes, nodes) || startNodeIds.Contains(nodeId))
+            {
+                node.isActive = true;
+                activeNodes.Add(nodeId);
+            }
+        }
+        // 노드 비활성화 시 (연결이 유지되는지 확인)
+        else
+        {
+            activeNodes.Remove(nodeId);
+            if (!node.IsConnected(activeNodes, nodes)) // 연결이 유지되지 않으면 다시 활성화
             {
                 activeNodes.Add(nodeId);
             }
             else
             {
-                activeNodes.Remove(nodeId);
+                node.isActive = false;
             }
-
-            // 네트워크 전체 상태 업데이트 (연결이 끊어진 노드 비활성화)
-            UpdateNetworkState();
         }
+
+        UpdateNetworkState();
     }
+
 
     // 네트워크 상태 업데이트 - 연결이 끊어진 노드 찾아 비활성화
     private void UpdateNetworkState()
     {
-        bool changed;
-        do
+        // 활성화된 노드에서 연결된 노드 찾기 (BFS)
+        HashSet<int> connectedNodes = new HashSet<int>();
+        Queue<int> queue = new Queue<int>();
+
+        foreach (var startNode in startNodeIds)
         {
-            changed = false;
-            List<int> nodesToDeactivate = new List<int>();
+            queue.Enqueue(startNode);
+            connectedNodes.Add(startNode);
+        }
 
-            // 활성화된 노드 중 연결이 끊어진 노드 찾기
-            foreach (int nodeId in activeNodes.ToList())
+        while (queue.Count > 0)
+        {
+            int currentNodeId = queue.Dequeue();
+            NetworkNode currentNode = nodes.Find(n => n.id == currentNodeId);
+
+            foreach (int neighborId in currentNode.connections)
             {
-                // 시작 노드는 항상 활성 상태 유지
-                if (startNodeIds.Contains(nodeId)) continue;
-
-                NetworkNode node = nodes.Find(n => n.id == nodeId);
-                if (!node.IsConnected(activeNodes))
+                if (!connectedNodes.Contains(neighborId) && activeNodes.Contains(neighborId))
                 {
-                    nodesToDeactivate.Add(nodeId);
-                    changed = true;
+                    connectedNodes.Add(neighborId);
+                    queue.Enqueue(neighborId);
                 }
             }
+        }
 
-            // 연결이 끊어진 노드 비활성화
-            foreach (int nodeId in nodesToDeactivate)
+        // 연결되지 않은 노드 비활성화
+        foreach (int nodeId in activeNodes.ToList())
+        {
+            if (!connectedNodes.Contains(nodeId))
             {
-                activeNodes.Remove(nodeId);
                 nodes.Find(n => n.id == nodeId).isActive = false;
+                activeNodes.Remove(nodeId);
             }
-        } while (changed); // 더 이상 변화가 없을 때까지 반복
+        }
+
+        Debug.Log($"[UpdateNetworkState] 활성화된 노드 목록: {string.Join(", ", activeNodes)}");
+        Debug.Log($"[UpdateNetworkState] 연결된 노드 목록: {string.Join(", ", connectedNodes)}");
     }
+
 
     public bool IsCorrect()
     {
@@ -163,5 +175,37 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
             activeNodes.Add(nodeId);
             nodes.Find(n => n.id == nodeId).isActive = true;
         }
+    }
+    void CheckNodeConnections()
+    {
+        NetworkNode node0 = nodes.Find(n => n.id == 0);
+        NetworkNode node1 = nodes.Find(n => n.id == 1);
+        NetworkNode node3 = nodes.Find(n => n.id == 3);
+
+        if (node0 == null || node1 == null || node3 == null)
+        {
+            Debug.LogError("노드를 찾을 수 없습니다.");
+            return;
+        }
+
+        bool isConnectedTo1 = node0.connections.Contains(1);
+        bool isConnectedTo3 = node0.connections.Contains(3);
+
+        Debug.Log($"0번 노드가 1번 노드와 연결되어 있는가? {isConnectedTo1}");
+        Debug.Log($"0번 노드가 3번 노드와 연결되어 있는가? {isConnectedTo3}");
+
+        bool isNode0Active = activeNodes.Contains(0);
+        bool isNode1Active = activeNodes.Contains(1);
+        bool isNode3Active = activeNodes.Contains(3);
+
+        Debug.Log($"0번 노드 활성화 상태: {isNode0Active}");
+        Debug.Log($"1번 노드 활성화 상태: {isNode1Active}");
+        Debug.Log($"3번 노드 활성화 상태: {isNode3Active}");
+
+        bool isNode1Connected = node1.IsConnected(activeNodes, nodes);
+        bool isNode3Connected = node3.IsConnected(activeNodes, nodes);
+
+        Debug.Log($"1번 노드가 활성화된 노드들과 연결되어 있는가? {isNode1Connected}");
+        Debug.Log($"3번 노드가 활성화된 노드들과 연결되어 있는가? {isNode3Connected}");
     }
 }
