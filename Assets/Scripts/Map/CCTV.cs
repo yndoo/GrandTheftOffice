@@ -5,57 +5,74 @@ using UnityEngine;
 public class CCTV : Enemy
 {
     // 회전 관련
-    public float rotationSpeed = 10f;
+    public float rotationSpeed = 30f;
     private float rotationAngle = 45f;
-    private float currentRotation = 0f;
-    private int rotationDirection = 1;
+    private float initialRotation;
 
     // 감지 관련
-    public float detectionRadius = 1f;
-    public float detectionDistance = 5f;
-    public float detectionAngle = 45f;
+    public float detectionRadius = 0.5f; // 감지 범위 반경
+    public float detectionDistance = 5f; // 감지 거리
+    public float detectionAngle = 45f;   // 시야각
 
-    private CCTVFieldOfView fov; // 🔥 CCTVFieldOfView 추가
+    private CCTVFieldOfView fov; // 🔥 CCTVFieldOfView 참조
 
     void Start()
     {
-        fov = GetComponent<CCTVFieldOfView>(); // CCTVFieldOfView 가져오기
+        fov = GetComponent<CCTVFieldOfView>();
         if (fov == null)
         {
             Debug.LogWarning("CCTVFieldOfView 컴포넌트가 없음! 자동으로 추가합니다.");
-            fov = gameObject.AddComponent<CCTVFieldOfView>(); // 없으면 추가
+            fov = gameObject.AddComponent<CCTVFieldOfView>();
         }
+
+        // FOV 설정 동기화
+        fov.detectionRange = detectionDistance;
+        fov.detectionAngle = detectionAngle;
+
+        // 현재 배치된 방향을 기준으로 회전 시작
+        initialRotation = transform.eulerAngles.y;
+    }
+
+    public override void Rotate()
+    {
+        // 기준 방향에서 좌우 ±rotationAngle 까지 회전
+        float targetRotation = initialRotation + Mathf.Sin(Time.time * rotationSpeed * Mathf.Deg2Rad) * rotationAngle;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, targetRotation, transform.rotation.eulerAngles.z);
     }
 
     public override void Detect()
     {
-        RaycastHit hit;
-        Vector3 cctvDirection = transform.right; // CCTV가 감지할 방향
+        UpdateFOV();
+        Collider[] hits = Physics.OverlapSphere(transform.position, detectionDistance);
 
-        if (Physics.SphereCast(transform.position, detectionRadius, cctvDirection, out hit, detectionDistance))
+        foreach (Collider hit in hits)
         {
-            if (hit.collider.CompareTag(playerTag))
+            if (hit.CompareTag(playerTag))
             {
-                Vector3 directionToTarget = (hit.collider.transform.position - transform.position).normalized;
+                Vector3 directionToTarget = (hit.transform.position - transform.position).normalized;
+                float angleToTarget = Vector3.Angle(transform.right, directionToTarget); // CCTV가 보는 방향 기준
 
-                if (Vector3.Angle(cctvDirection, directionToTarget) < detectionAngle * 0.5f)
+                if (angleToTarget < detectionAngle * 0.5f)
                 {
-                    OnDetect();
+                    RaycastHit raycastHit;
+                    if (Physics.Raycast(transform.position, directionToTarget, out raycastHit, detectionDistance))
+                    {
+                        if (raycastHit.collider.CompareTag(playerTag))
+                        {
+                            OnDetect();
+                        }
+                    }
                 }
             }
         }
     }
 
-    public override void Rotate()
+    private void UpdateFOV()
     {
-        currentRotation += rotationSpeed * rotationDirection * Time.deltaTime;
-
-        if (currentRotation >= rotationAngle || currentRotation <= -rotationAngle)
+        if (fov != null)
         {
-            rotationDirection *= -1;
+            fov.transform.rotation = transform.rotation; // 회전 동기화
         }
-
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, currentRotation, transform.rotation.eulerAngles.z);
     }
 
     private void OnDetect()
