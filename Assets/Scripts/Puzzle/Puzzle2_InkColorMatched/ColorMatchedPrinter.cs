@@ -14,7 +14,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
         // 매 프레임마다 색상 확인 (잉크가 올려질 때마다 바로 반영)
         FindInk();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))// 추후 상황에 맞게 수정 필요
         {
             CheckAndPrint();
         }
