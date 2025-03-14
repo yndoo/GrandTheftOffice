@@ -446,7 +446,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &96494485216514809
 MonoBehaviour:
@@ -565,6 +565,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d544ce55-b145-4b74-89bc-920334c97fdb
     m_ActionName: New action map/Pickup[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2993277809745090752}
+        m_TargetAssemblyTypeName: DragDrop, Assembly-CSharp
+        m_MethodName: OnHoldingRotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dbf325da-40fc-47b5-bd56-885d20327931
+    m_ActionName: New action map/HoldingRotate[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: New action map
@@ -653,9 +669,12 @@ MonoBehaviour:
   oblayer:
     serializedVersion: 2
     m_Bits: 512
+  cantDragLayer:
+    serializedVersion: 2
+    m_Bits: 7607
   heldItem: {fileID: 0}
   holdPositon: {fileID: 5806269069048578669}
-  pickupRange: 5
+  pickupRange: 3
 --- !u!1 &6076555140502058036
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ComputerScreenUI : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class ComputerScreenUI : MonoBehaviour
     public UnityEngine.UI.Button SendMessageBtn;
     public GameObject Messenger;
     public GameObject SentMessage;
+    public GameObject Loading;
 
     private void Awake()
     {
@@ -22,7 +22,22 @@ public class ComputerScreenUI : MonoBehaviour
 
     private void OnEnable()
     {
-        // TODO : 로딩 보여주기
+        StartCoroutine(PCStart());
+    }
+
+    IEnumerator PCStart()
+    {
+        Loading.SetActive(true);
+
+        float curTime = 2f;
+        while (curTime > 0)
+        {
+            curTime -= Time.deltaTime;
+            yield return null;
+        }
+
+        Loading.SetActive(false);
+        OpenMessengerBtn.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -43,5 +58,6 @@ public class ComputerScreenUI : MonoBehaviour
         SentMessage.SetActive(true);
 
         puzzle?.GetReward();
+        Debug.Log("퍼즐3 완료");
     }
 }
