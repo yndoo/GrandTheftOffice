@@ -292,7 +292,7 @@ MonoBehaviour:
   - {fileID: 5848791591951559271}
   - {fileID: 5421410297877245941}
   targetColor: {r: 1, g: 0, b: 1, a: 0}
-  colorDisplay: {fileID: 1678066944550747060}
+  colorDisplay: {fileID: 0}
 --- !u!1 &8035953350708758906
 GameObject:
   m_ObjectHideFlags: 0
