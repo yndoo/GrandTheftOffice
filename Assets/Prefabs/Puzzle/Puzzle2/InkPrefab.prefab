@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9002255345509161423}
   - component: {fileID: 4315880239350034757}
   - component: {fileID: 39297656165371389}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4436337504005320800}
   - component: {fileID: 1468560040406412265}
   - component: {fileID: 5093173484256036617}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 4465481201854876392}
   - component: {fileID: 1527464777327015307}
   - component: {fileID: 6133713131714961338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InkPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6588, y: 0.3093, z: 0.217}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7491268666730231800}
