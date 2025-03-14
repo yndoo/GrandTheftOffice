@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ComputerScreenUI : MonoBehaviour
 {
     [HideInInspector] public SendingMailPuzzle puzzle;
-    public Button OpenMessengerBtn;
-    public Button SendMessageBtn;
+    public UnityEngine.UI.Button OpenMessengerBtn;
+    public UnityEngine.UI.Button SendMessageBtn;
     public GameObject Messenger;
 
     private void Awake()
