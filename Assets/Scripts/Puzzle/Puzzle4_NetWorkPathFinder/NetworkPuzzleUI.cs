@@ -82,7 +82,7 @@ public class NetworkPuzzleUI : MonoBehaviour
                 // 위치 설정 (간단한 원형 배치)
                 int totalNodes = puzzleController.GetNodes().Count;
                 float angle = (360f / totalNodes) * node.id;
-                float radius = 150f;
+                float radius = 120f;
                 Vector2 position = new Vector2(
                     Mathf.Cos(angle * Mathf.Deg2Rad) * radius,
                     Mathf.Sin(angle * Mathf.Deg2Rad) * radius
