@@ -1,4 +1,4 @@
-// NodeUI 클래스
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,7 @@ public enum NodeType { Normal, Start, Target }
 
 public class NodeUI : MonoBehaviour
 {
-    [SerializeField] private Button button;
+    [SerializeField] private Button button; // Specify the full namespace
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TextMeshProUGUI idText;
 
@@ -28,7 +28,8 @@ public class NodeUI : MonoBehaviour
 
         // 버튼 이벤트 연결
         button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => {
+        button.onClick.AddListener(() =>
+        {
             OnNodeClicked?.Invoke(nodeId);
         });
 
