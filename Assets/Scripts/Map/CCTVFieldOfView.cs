@@ -5,7 +5,7 @@ using UnityEngine;
 public class CCTVFieldOfView : MonoBehaviour
 {
     public float detectionRange = 5f;  // 감지 거리
-    public float detectionAngle = 90f; // 감지 시야각
+    public float detectionAngle = 45f; // 감지 시야각
     public Material fovMaterial;       // 반투명 머티리얼
 
     private MeshFilter meshFilter;
@@ -48,17 +48,17 @@ public class CCTVFieldOfView : MonoBehaviour
     {
         int segmentCount = 20; // 원뿔을 구성할 삼각형 개수
         float halfAngle = detectionAngle * 0.5f;
-        Vector3 origin = transform.position;
+        Vector3 origin = Vector3.zero; // Mesh의 기준점
 
         List<Vector3> vertices = new List<Vector3>();
         List<int> triangles = new List<int>();
 
-        vertices.Add(Vector3.zero); // 원뿔의 중심점 (CCTV 위치 기준)
+        vertices.Add(origin); // 원뿔의 중심점
 
         for (int i = 0; i <= segmentCount; i++)
         {
             float angle = Mathf.Lerp(-halfAngle, halfAngle, i / (float)segmentCount);
-            Vector3 direction = Quaternion.Euler(0, angle, 0) * transform.right;
+            Vector3 direction = Quaternion.Euler(0, angle, 0) * Vector3.right;
             vertices.Add(direction * detectionRange);
 
             if (i > 0)
