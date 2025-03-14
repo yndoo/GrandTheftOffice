@@ -21,7 +21,9 @@ public class Puzzle : MonoBehaviour
 
     public virtual void GetReward()
     {
-        Reward.RewardHint?.SetActive(true);
+        if (Reward.RewardHint != null) 
+            Reward.RewardHint.SetActive(true);
+
         // TODO : 그외 보상 지급
     }
 }

@@ -9,6 +9,8 @@ public class ComputerScreenUI : MonoBehaviour
     public UnityEngine.UI.Button OpenMessengerBtn;
     public UnityEngine.UI.Button SendMessageBtn;
     public GameObject Messenger;
+    public GameObject SentMessage;
+
     private void Awake()
     {
         Canvas canvas = GetComponent<Canvas>();
@@ -16,6 +18,11 @@ public class ComputerScreenUI : MonoBehaviour
 
         OpenMessengerBtn.onClick.AddListener(OnClickOpenMessenger);
         SendMessageBtn.onClick.AddListener(OnClickSendMessage);
+    }
+
+    private void OnEnable()
+    {
+        // TODO : 로딩 보여주기
     }
 
     /// <summary>
@@ -32,7 +39,8 @@ public class ComputerScreenUI : MonoBehaviour
     void OnClickSendMessage()
     {
         if (puzzle?.IsCompleted == true) return; // 퍼즐 완료 후 재전송 불가
-        // TODO : 전송 완료 UI 활성화
+
+        SentMessage.SetActive(true);
 
         puzzle?.GetReward();
     }
