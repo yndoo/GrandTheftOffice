@@ -285,8 +285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reward:
-    RewardHint: {fileID: 0}
-    Score: 0
+    RewardHint: {fileID: 2315470983439446014, guid: 70d4d5016aacc214db8b5296b6a18b09, type: 3}
+    Score: 40
   inkZone:
   - {fileID: 685445021933798019}
   - {fileID: 5848791591951559271}
