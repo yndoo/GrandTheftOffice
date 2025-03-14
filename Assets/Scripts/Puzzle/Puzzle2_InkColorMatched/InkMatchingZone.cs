@@ -31,8 +31,15 @@ public class InkMatchingZone : MatchingSystem
                 // 정확한 위치로 이동
                 currentInk.transform.position = this.transform.position;
 
+                // X축으로 180도 회전
+                Vector3 currentRotation = currentInk.transform.eulerAngles;
+                currentRotation.x = 0f;
+                currentRotation.y = 0f;
+                currentRotation.z = 180f;
+                currentInk.transform.eulerAngles = new Vector3(currentRotation.x, currentRotation.y, currentRotation.z);
+
                 // 회전도 고정하려면 다음 코드 추가
-                currentInk.transform.rotation = this.transform.rotation;
+                //currentInk.transform.rotation = this.transform.rotation;
             }
 
             // 즉시 매칭 상태 설정
