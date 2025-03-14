@@ -6,6 +6,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
 {
     [SerializeField] private List<MatchingSystem> inkZone;
     [SerializeField] private Color targetColor;
+    [SerializeField] private SpriteRenderer colorDisplay;
 
     private Color combinedColor;
 
@@ -13,7 +14,8 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
     {
         // 매 프레임마다 색상 확인 (잉크가 올려질 때마다 바로 반영)
         FindInk();
-
+        // 스프라이트 색상 업데이트
+        UpdateColorDisplay();
         if (Input.GetKeyDown(KeyCode.Space))// 추후 상황에 맞게 수정 필요
         {
             CheckAndPrint();
@@ -45,6 +47,15 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
         combinedColor.r = Mathf.Clamp01(combinedColor.r);
         combinedColor.g = Mathf.Clamp01(combinedColor.g);
         combinedColor.b = Mathf.Clamp01(combinedColor.b);
+    }
+
+    // 스프라이트 색상 업데이트
+    private void UpdateColorDisplay()
+    {
+        if (colorDisplay != null)
+        {
+            colorDisplay.color = combinedColor;
+        }
     }
 
     // 정답 확인 및 종이 출력
