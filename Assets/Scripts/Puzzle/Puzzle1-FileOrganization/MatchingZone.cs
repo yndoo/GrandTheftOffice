@@ -63,4 +63,15 @@ public class MatchingZone : MatchingSystem
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent<FileToOrganize>(out FileToOrganize file))
+        {
+            if(CurrentFile == file)
+            {
+                IsMatched = false;
+            }
+        }
+    }
 }
