@@ -12,7 +12,7 @@ public class NetworkPuzzleUI : MonoBehaviour
     [SerializeField] private GameObject nodePrefab;
     [SerializeField] private Transform nodesContainer;
     [SerializeField] private TextMeshProUGUI statusText;
-    [SerializeField] private Button resetButton;
+    [SerializeField] private UnityEngine.UI.Button resetButton;
 
     private Dictionary<int, NodeUI> nodeUIElements = new Dictionary<int, NodeUI>();
     private List<LineRenderer> connectionLines = new List<LineRenderer>();

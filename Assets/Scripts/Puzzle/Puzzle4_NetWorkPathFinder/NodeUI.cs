@@ -7,7 +7,7 @@ public enum NodeType { Normal, Start, Target }
 
 public class NodeUI : MonoBehaviour
 {
-    [SerializeField] private Button button; // Specify the full namespace
+    [SerializeField] private UnityEngine.UI.Button button; 
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TextMeshProUGUI idText;
 
