@@ -61,7 +61,7 @@ public class Interaction : MonoBehaviour
 
     private void SetPromptText()
     {
-        if (curInteractable != null) 
+        if (curInteractable != null) // 🎯 NULL 체크 추가
         {
             Debug.Log(curInteractable.SetPrompt());
             // promptText.gameObject.SetActive(true);
