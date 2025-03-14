@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 상호작용 가능한 오브젝트의 기본 클래스
 public class InteractController : MonoBehaviour
 {
-    // TODO : 퍼즐 관련 컨트롤러 추가
-    
-    // 플레이어 인풋이벤트 발생 시 실행 함수
-    public void OnInteract()
+    public virtual void OnInteract() 
     {
-        Debug.Log("OnInteract");
+        // 자식 클래스에서 override 가능하도록 설정
     }
 }

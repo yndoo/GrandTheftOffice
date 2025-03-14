@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CCTVFieldOfView : MonoBehaviour
 {
-    public float detectionRange = 5f;  // 감지 거리
+    public float detectionRange = 7f;  // 감지 거리
     public float detectionAngle = 45f; // 감지 시야각
     public Material fovMaterial;       // 반투명 머티리얼
 

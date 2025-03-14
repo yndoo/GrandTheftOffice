@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668867682575028003}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4615662, y: -0.5356834, z: 0.5356834, w: 0.4615662}
+  m_LocalRotation: {x: 0.4708449, y: -0.52754635, z: 0.52754635, w: 0.4708449}
   m_LocalPosition: {x: 0.0006709933, y: -4.1527913e-11, z: -0.00110467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -202,7 +202,7 @@ Transform:
   - {fileID: 4757310232836159409}
   - {fileID: 8159882137781795760}
   m_Father: {fileID: 6011600703964876244}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 98.501}
+  m_LocalEulerAnglesHint: {x: 90, y: 2, z: 98.501}
 --- !u!114 &5610769664661603444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,11 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a050dcb7a37b46b7a000e43d151973f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 10
+  detectionRange: 15
   playerTag: Player
   rotationSpeed: 20
-  detectionRadius: 0.5
-  detectionDistance: 5
+  detectionDistance: 7
   detectionAngle: 45
 --- !u!114 &253372196056956576
 MonoBehaviour:
@@ -233,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade0aaab5d4a432d9e5d95ef5f1406a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 5
+  detectionRange: 7
   detectionAngle: 45
   fovMaterial: {fileID: 2100000, guid: d2f07dc96d8bc4ca3ad9d096130ccc76, type: 2}
 --- !u!1 &3039662803460167533

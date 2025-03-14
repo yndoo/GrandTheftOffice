@@ -10,11 +10,10 @@ public class CCTV : Enemy
     private float initialRotation;
 
     // 감지 관련
-    public float detectionRadius = 0.5f; // 감지 범위 반경
-    public float detectionDistance = 5f; // 감지 거리
+    public float detectionDistance = 7f; // 감지 거리
     public float detectionAngle = 45f;   // 시야각
 
-    private CCTVFieldOfView fov; // 🔥 CCTVFieldOfView 참조
+    private CCTVFieldOfView fov;
 
     void Start()
     {
@@ -59,6 +58,7 @@ public class CCTV : Enemy
                     {
                         if (raycastHit.collider.CompareTag(playerTag))
                         {
+                            Debug.Log("Player detected!");
                             OnDetect();
                         }
                     }
