@@ -24,29 +24,22 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
     
     public void ToggleNode(int nodeId)
     {
-        Debug.Log($"[ToggleNode] 노드 {nodeId} 토글 시도");
-
         NetworkNode node = nodes.Find(n => n.id == nodeId);
-        if (node == null)
-        {
-            Debug.LogWarning($"[ToggleNode] 노드 {nodeId} 찾을 수 없음");
-            return;
-        }
+        if (node == null) return;
 
         // 활성화 시도
         if (!node.isActive)
         {
-            // 단순화된 IsConnected 메서드 사용
-            bool canActivate = startNodeIds.Contains(nodeId) ||
-                               node.connections.Any(connId => activeNodes.Contains(connId));
-
-            Debug.Log($"[ToggleNode] 노드 {nodeId} 활성화 가능 여부: {canActivate}");
-
-            if (canActivate)
+            // 수정된 부분: CanActivate 메서드 사용
+            if (CanActivate(nodeId))
             {
                 node.isActive = true;
                 activeNodes.Add(nodeId);
-                Debug.Log($"[ToggleNode] 노드 {nodeId} 활성화됨");
+                Debug.Log($"노드 {nodeId} 활성화됨");
+            }
+            else
+            {
+                Debug.Log($"노드 {nodeId}는 활성화 조건을 충족하지 않음");
             }
         }
         else // 비활성화 시도
@@ -68,6 +61,26 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
         Debug.Log($"[ToggleNode] 노드 {nodeId} 최종 상태: {(node.isActive ? "활성화" : "비활성화")}");
     }
 
+    public bool CanActivate(int nodeId)
+    {
+        // 기본 연결 조건 확인
+        NetworkNode node = nodes.Find(n => n.id == nodeId);
+        bool basicCondition = node.IsConnected(activeNodes) || startNodeIds.Contains(nodeId);
+
+        // 추가 패턴 조건
+        switch (nodeId)
+        {
+            case 7: // 예: 노드 7은 노드 1, 3, 5가 모두 활성화되어야 활성화 가능
+                return basicCondition && activeNodes.Contains(1) &&
+                       activeNodes.Contains(3) && activeNodes.Contains(5);
+
+            case 5: // 예: 노드 5는 노드 1가 비활성화되어 있어야 활성화 가능
+                return basicCondition && !activeNodes.Contains(1);
+
+            default:
+                return basicCondition;
+        }
+    }
 
 
     // 네트워크 상태 업데이트 - 연결이 끊어진 노드 찾아 비활성화
