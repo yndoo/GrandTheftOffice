@@ -9,6 +9,7 @@ public class ComputerScreenUI : MonoBehaviour
     public Button OpenMessengerBtn;
     public Button SendMessageBtn;
     public GameObject Messenger;
+
     private void Awake()
     {
         Canvas canvas = GetComponent<Canvas>();
