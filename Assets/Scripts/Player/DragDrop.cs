@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
 
@@ -47,6 +48,8 @@ public class DragDrop : MonoBehaviour
                 heldItem.useGravity = false;
                 isHolding = true;
             }
+
+            return;
         }
     }
 
@@ -54,8 +57,7 @@ public class DragDrop : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started )
         {
-
-            if(isHolding)
+            if (isHolding)
             {
                 Drop();              
             }
@@ -63,6 +65,7 @@ public class DragDrop : MonoBehaviour
             {
                 Pickup();
             }
+            WorldUIClick();
         }
     }
  
@@ -160,5 +163,37 @@ public class DragDrop : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    /// <summary>
+    /// World Space에 있는 UI의 이벤트를 수동으로 실행
+    /// </summary>
+    void WorldUIClick()
+    {
+        if(EventSystem.current == null)        
+        {
+            CreateEventSystem();
+        }
+
+        //PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = new Vector2(Screen.width / 2, Screen.height / 2) };
+        PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = Input.mousePosition };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        foreach(RaycastResult result in results)
+        {
+            // 클릭 이벤트 실행
+            ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerClickHandler);
+        }
+    }
+
+    void CreateEventSystem()
+    {
+        GameObject eventSystemObj = new GameObject("EventSystem");
+
+        // EventSystem에 붙는 컴포넌트들 추가
+        eventSystemObj.AddComponent<EventSystem>();
+        eventSystemObj.AddComponent<StandaloneInputModule>();
     }
 }
