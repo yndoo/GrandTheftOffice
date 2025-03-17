@@ -100,6 +100,7 @@ public class OutTrigger : MonoBehaviour
         if (buttonScript != null)
         {
             buttonScript.isClickable = true;
+            buttonScript.OutTrigger = true;
             Debug.Log("모든 아이템을 수집 완료! 버튼이 활성화됨.");
         }
     }
