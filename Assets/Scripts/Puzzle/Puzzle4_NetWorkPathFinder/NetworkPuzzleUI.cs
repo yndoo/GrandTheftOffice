@@ -65,6 +65,9 @@ public class NetworkPuzzleUI : MonoBehaviour
         if (puzzleController != null)
         {
             puzzleController.ResetPuzzle();
+            // 커서 잠금 해제
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     private void OnDestroy()
