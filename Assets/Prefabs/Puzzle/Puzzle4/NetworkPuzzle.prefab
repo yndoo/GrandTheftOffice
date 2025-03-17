@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &109135988766887222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3489121834417622808}
+  - component: {fileID: 7119836112000289962}
+  - component: {fileID: 4903704665635610559}
+  m_Layer: 0
+  m_Name: NetworkPuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3489121834417622808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109135988766887222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 532.5, y: 299.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7119836112000289962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109135988766887222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ace6995a23be2448ae63173d6d89e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reward:
+    RewardHint: {fileID: 0}
+    Score: 40
+  nodes:
+  - id: 0
+    connections: 0100000003000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 0
+    activationSequence: 
+    description: 
+  - id: 1
+    connections: 000000000200000004000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 1
+    activationSequence: 
+    description: 
+  - id: 2
+    connections: 0100000005000000
+    isActive: 0
+    nodeType: 6
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: 
+  - id: 3
+    connections: 000000000400000006000000
+    isActive: 0
+    nodeType: 3
+    affectedNodes: 0600000007000000
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: 
+  - id: 4
+    connections: 01000000030000000500000007000000
+    isActive: 0
+    nodeType: 5
+    affectedNodes: 05000000
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: 
+  - id: 5
+    connections: 020000000400000008000000
+    isActive: 0
+    nodeType: 4
+    affectedNodes: 07000000
+    timerDuration: 5
+    energyCost: 3
+    activationSequence: 
+    description: 
+  - id: 6
+    connections: 0300000007000000
+    isActive: 0
+    nodeType: 6
+    affectedNodes: 
+    timerDuration: 8
+    energyCost: 1
+    activationSequence: 
+    description: 
+  - id: 7
+    connections: 040000000600000008000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 4
+    activationSequence: 0300000006000000
+    description: 
+  - id: 8
+    connections: 0500000007000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: 
+  startNodeIds: 00000000
+  targetNodeIds: 08000000
+  availableEnergy: 10
+  puzzleTimeLimit: 30
+--- !u!114 &4903704665635610559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109135988766887222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e1cf0ea196c3149861c3487fbc8b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
