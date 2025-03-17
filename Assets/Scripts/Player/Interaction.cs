@@ -12,7 +12,6 @@ public class Interaction : MonoBehaviour
     public GameObject curInteractGameObject;
     private I_Interactable curInteractable;
 
-    public TextMeshProUGUI promptText;
     private Camera camera;
 
     void Start()
@@ -43,11 +42,12 @@ public class Interaction : MonoBehaviour
                 
                 if (curInteractable != null)
                 {
-                    SetPromptText();
+                    string promptText = curInteractable.SetPrompt(); 
+                    UIManager.Instance.ShowInteractionUI(promptText);
                 }
                 else
                 {
-                    // promptText.gameObject.SetActive(false); // 인터랙션 불가능하면 UI 숨김
+                    UIManager.Instance.HideInteractionUI();
                 }
             }
         }
@@ -55,7 +55,7 @@ public class Interaction : MonoBehaviour
         {
             curInteractGameObject = null;
             curInteractable = null;
-            // promptText.gameObject.SetActive(false);
+            UIManager.Instance.HideInteractionUI();
         }
     }
 
@@ -64,8 +64,7 @@ public class Interaction : MonoBehaviour
         if (curInteractable != null) // 🎯 NULL 체크 추가
         {
             Debug.Log(curInteractable.SetPrompt());
-            // promptText.gameObject.SetActive(true);
-            // promptText.text = curInteractable.SetPrompt();
+            UIManager.Instance.HideInteractionUI();
         }
     }
 
@@ -76,7 +75,7 @@ public class Interaction : MonoBehaviour
             curInteractable.OnInteract();
             curInteractGameObject = null;
             curInteractable = null;
-            // promptText.gameObject.SetActive(false);
+            UIManager.Instance.HideInteractionUI();
         }
     }
 }
