@@ -55,6 +55,8 @@ public class Stage : MonoBehaviour, I_Interactable
     public void OnInteract()
     {
         if (!isClear && stageNumber != saveClearedStage + 1) return;
+
+        GameManager.Instance.CurrentStage = stageNumber;
         
         switch (stageNumber)
         {
@@ -70,7 +72,7 @@ public class Stage : MonoBehaviour, I_Interactable
             default:
                 SceneLoaded("MainScene");
                 break;
-        }        
+        }
     }
     
     private void ChangeMaterial(Color color)
