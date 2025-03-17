@@ -20,12 +20,10 @@ public class Button : MonoBehaviour, I_Interactable
     {
         if (isClickable)
         {
-            Debug.Log(isClickable);
             isClickable = false;
-            Debug.Log(isClickable);
+            
             isInteract = !isInteract;
-            transform.Rotate(new Vector3(0, 0, isInteract ? interactAngle1 : interactAngle2));
-            Debug.Log(isInteract);
+            
             firePrefab.SetActive(isInteract);
         }
 
@@ -38,7 +36,6 @@ public class Button : MonoBehaviour, I_Interactable
             {
                 GameManager.Instance.LastClearedStage = currentStage;
             }
-            
             SceneManager.Instance.LoadScene("StageScene");
         }
     }
