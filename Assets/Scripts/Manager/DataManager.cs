@@ -8,16 +8,22 @@ public class DataManager : Singleton<DataManager>
 {
     public static T LoadData<T>(string filePath)
     {
-        
-        string loaded = File.ReadAllText(Application.persistentDataPath + filePath);
-        if (loaded == null)
+        if(File.Exists(Application.persistentDataPath + filePath))
         {
-            throw new System.NullReferenceException();
+            string loaded = File.ReadAllText(Application.persistentDataPath + filePath);
+            if (loaded == null)
+            {
+                throw new System.NullReferenceException();
+            }
+
+            T Data = JsonConvert.DeserializeObject<T>(loaded);
+
+            return Data;
         }
-
-        T Data = JsonConvert.DeserializeObject<T>(loaded);
-
-        return Data;
+        else
+        {
+            return default(T);
+        }
     }
 
     public static void SaveData<T>(T data, string filePath)
