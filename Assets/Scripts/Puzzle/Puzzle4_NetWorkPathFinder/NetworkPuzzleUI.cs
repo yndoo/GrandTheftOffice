@@ -45,10 +45,6 @@ public class NetworkPuzzleUI : MonoBehaviour
 
             uiUpdateCoroutine = StartCoroutine(UpdateUICoroutine());
         }
-        else
-        {
-            Debug.LogError("EnhancedNetworkPuzzleUI: EnhancedNetworkPuzzle controller not found!");
-        }
 
         // 추가 패널 활성화 (사용 가능한 경우)
         if (energyPanel != null)
@@ -56,6 +52,20 @@ public class NetworkPuzzleUI : MonoBehaviour
 
         if (timerPanel != null)
             timerPanel.SetActive(true);
+    }
+
+    private void Update()
+    {
+        
+        UpdateUI();
+    }
+    private void OnEnable()
+    {
+        // UI가 활성화될 때 퍼즐 리셋
+        if (puzzleController != null)
+        {
+            puzzleController.ResetPuzzle();
+        }
     }
     private void OnDestroy()
     {
@@ -334,7 +344,6 @@ public class NetworkPuzzleUI : MonoBehaviour
             }
         }
     }
-
     // 주기적 UI 업데이트를 위한 코루틴
     private IEnumerator UpdateUICoroutine()
     {

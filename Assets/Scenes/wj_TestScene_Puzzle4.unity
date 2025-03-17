@@ -548,7 +548,7 @@ MonoBehaviour:
     nodeType: 0
     affectedNodes: 
     timerDuration: 5
-    energyCost: 1
+    energyCost: 0
     activationSequence: 
     description: 
   - id: 1
@@ -563,45 +563,45 @@ MonoBehaviour:
   - id: 2
     connections: 0100000005000000
     isActive: 0
-    nodeType: 0
+    nodeType: 6
     affectedNodes: 
     timerDuration: 5
-    energyCost: 1
+    energyCost: 2
     activationSequence: 
     description: 
   - id: 3
     connections: 000000000400000006000000
     isActive: 0
-    nodeType: 0
-    affectedNodes: 
+    nodeType: 3
+    affectedNodes: 0600000007000000
     timerDuration: 5
-    energyCost: 1
+    energyCost: 2
     activationSequence: 
     description: 
   - id: 4
-    connections: 010000000300000007000000
+    connections: 01000000030000000500000007000000
     isActive: 0
-    nodeType: 0
+    nodeType: 5
     affectedNodes: 
     timerDuration: 5
-    energyCost: 1
-    activationSequence: 
+    energyCost: 2
+    activationSequence: 05000000
     description: 
   - id: 5
-    connections: 0200000008000000
+    connections: 020000000400000008000000
     isActive: 0
-    nodeType: 6
-    affectedNodes: 
+    nodeType: 4
+    affectedNodes: 07000000
     timerDuration: 5
-    energyCost: 1
+    energyCost: 3
     activationSequence: 
     description: 
   - id: 6
     connections: 0300000007000000
     isActive: 0
-    nodeType: 0
+    nodeType: 6
     affectedNodes: 
-    timerDuration: 5
+    timerDuration: 8
     energyCost: 1
     activationSequence: 
     description: 
@@ -611,8 +611,8 @@ MonoBehaviour:
     nodeType: 0
     affectedNodes: 
     timerDuration: 5
-    energyCost: 1
-    activationSequence: 
+    energyCost: 4
+    activationSequence: 0300000006000000
     description: 
   - id: 8
     connections: 0500000007000000
@@ -620,10 +620,10 @@ MonoBehaviour:
     nodeType: 0
     affectedNodes: 
     timerDuration: 5
-    energyCost: 1
+    energyCost: 2
     activationSequence: 
     description: 
-  startNodeIds: 02000000
+  startNodeIds: 00000000
   targetNodeIds: 08000000
   availableEnergy: 10
   puzzleTimeLimit: 30
@@ -1162,7 +1162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1542362341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1480,15 +1480,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3219469926357017463, guid: 69fbcc367e7617a49a33ff20b79cad9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.005
+      value: 1.838
       objectReference: {fileID: 0}
     - target: {fileID: 3219469926357017463, guid: 69fbcc367e7617a49a33ff20b79cad9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.811
+      value: 2.152
       objectReference: {fileID: 0}
     - target: {fileID: 3219469926357017463, guid: 69fbcc367e7617a49a33ff20b79cad9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.55
+      value: 17.271
       objectReference: {fileID: 0}
     - target: {fileID: 3219469926357017463, guid: 69fbcc367e7617a49a33ff20b79cad9f, type: 3}
       propertyPath: m_LocalRotation.w

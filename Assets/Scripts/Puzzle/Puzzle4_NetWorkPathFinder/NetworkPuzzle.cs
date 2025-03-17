@@ -205,12 +205,12 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
         // 추가 패턴 조건
         switch (nodeId)
         {
-            case 7: // 예: 노드 7은 노드 1, 3, 5가 모두 활성화되어야 활성화 가능
+            /*case 7: // 예: 노드 7은 노드 1, 3, 5가 모두 활성화되어야 활성화 가능
                 return basicCondition && activeNodes.Contains(1) &&
                        activeNodes.Contains(3) && activeNodes.Contains(5);
 
             case 5: // 예: 노드 5는 노드 1가 비활성화되어 있어야 활성화 가능
-                return basicCondition && !activeNodes.Contains(1);
+                return basicCondition && !activeNodes.Contains(1);*/
 
             default:
                 return basicCondition;

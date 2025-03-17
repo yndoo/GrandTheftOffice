@@ -217,7 +217,7 @@ public class NodeUI : MonoBehaviour
             if (timerFillImage != null)
             {
                 timerFillImage.fillAmount = remainingTime / timerDuration;
-                Debug.Log("Timer updated, remaining time: " + remainingTime); // 디버그 로그 추가
+                
             }
 
             // 타이머가 끝나면 이벤트 발생 (필요한 경우)
@@ -225,7 +225,6 @@ public class NodeUI : MonoBehaviour
             {
                 isTimerActive = false;
                 isTimerStarted = false;
-                Debug.Log("Timer ended"); // 디버그 로그 추가
                 // 여기에 타이머 종료 시 실행할 코드 추가
             }
 
