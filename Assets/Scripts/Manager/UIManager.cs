@@ -4,7 +4,6 @@ using UnityEngine;
 
 public enum GameState
 {
-    MainMenu,
     Playing,
     Paused,
     GameOver,
@@ -14,7 +13,7 @@ public enum GameState
 public class UIManager :  Singleton<UIManager>
 {
     // 현재 게임 상태
-    private GameState _currentGameState = GameState.MainMenu;
+    private GameState _currentGameState = GameState.Playing;
 
     // 현재 점수
     private int _currentScore = 0;
