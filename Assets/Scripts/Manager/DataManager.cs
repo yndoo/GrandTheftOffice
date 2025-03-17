@@ -10,7 +10,7 @@ using System;
 public class DataManager : Singleton<DataManager>
 {
     private static readonly byte[] key = Encoding.UTF8.GetBytes("dI19vfsdf2341bP2");
-    private static readonly byte[] iv = Encoding.UTF8.GetBytes("0rB5mCzYdfngf0G8");
+
     public static T LoadData<T>(string filePath)
     {
         if(File.Exists(Application.persistentDataPath + filePath))
@@ -21,7 +21,8 @@ public class DataManager : Singleton<DataManager>
                 throw new System.NullReferenceException();
             }
 
-            T Data = JsonConvert.DeserializeObject<T>(Decrypt(loaded));
+            string context = Decrypt(loaded);
+            T Data = JsonConvert.DeserializeObject<T>(context);
 
             return Data;
         }
@@ -43,26 +44,41 @@ public class DataManager : Singleton<DataManager>
         using (Aes aes = Aes.Create())
         {
             aes.Key = key;
-            aes.IV = iv;
+            aes.GenerateIV();
 
             ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
             byte[] bytesToEncrypt = Encoding.UTF8.GetBytes(plainText);
+
+            // 암호화 
             byte[] encryptedData = encryptor.TransformFinalBlock(bytesToEncrypt, 0, bytesToEncrypt.Length);
 
-            return Convert.ToBase64String(encryptedData);
+            // IV를 데이터 앞에 덧붙임
+            byte[] result = new byte[aes.IV.Length + encryptedData.Length];
+            Array.Copy(aes.IV, 0, result, 0, aes.IV.Length);
+            Array.Copy(encryptedData, 0, result, aes.IV.Length, encryptedData.Length);
+
+            return Convert.ToBase64String(result);
         }
     }
 
     public static string Decrypt(string encryptedString)
     {
+        byte[] encryptedData = Convert.FromBase64String(encryptedString);
+
         using(Aes aes = Aes.Create())
         {
             aes.Key = key;
-            aes.IV = iv;
 
+            //IV 복구
+            byte[] iv = new byte[aes.IV.Length];
+            byte[] realEncrytedContext = new byte[encryptedData.Length - iv.Length];
+            Array.Copy(encryptedData, 0, iv, 0, iv.Length);
+            Array.Copy(encryptedData, iv.Length, realEncrytedContext, 0, realEncrytedContext.Length);
+
+            // 복호화 
+            aes.IV = iv;
             ICryptoTransform decrytor = aes.CreateDecryptor(aes.Key, aes.IV);
-            byte[] encryptedData = Convert.FromBase64String(encryptedString);
-            byte[] decryptedData = decrytor.TransformFinalBlock(encryptedData, 0, encryptedData.Length);
+            byte[] decryptedData = decrytor.TransformFinalBlock(realEncrytedContext, 0, realEncrytedContext.Length);
 
             return Encoding.UTF8.GetString(decryptedData);
         }
