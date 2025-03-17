@@ -10,15 +10,11 @@ public class UIManager :  Singleton<UIManager>
     public TextMeshProUGUI promptText; // 인터랙션 텍스트
 
 
-    public void ShowInteractionText(string message)
-    {
-        promptText.text = message;
-    }
 
-
-    public void ShowInteractionUI()
+    public void ShowInteractionUI(string message)
     {       
         interactionPanel.SetActive(true);
+        promptText.text = message;
     }
 
     public void HideInteractionUI()
