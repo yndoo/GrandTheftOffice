@@ -24,8 +24,9 @@ public class ScoreManager : Singleton<ScoreManager>
     protected override void Awake()
     {
         base.Awake(); // 싱글톤 기본 로직 실행
-        
+
         // 추가 초기화 코드
+        UpdateScoreUI();
         Debug.Log("스코어매니저 초기화");
     }
 
@@ -41,6 +42,23 @@ public class ScoreManager : Singleton<ScoreManager>
         OnScoreChanged?.Invoke(_currentScore);
 
         Debug.Log($"Score added: {amount}. Total score: {_currentScore}");
+    }
+
+    public void SubtractScore(int amount)
+    {
+        _currentScore -= amount;
+        if (_currentScore <= 0)
+        {
+            _currentScore = 0;
+            Debug.Log("점수가 0 이하로 내려갈 수 없습니다.");
+        }
+
+        // UI 업데이트
+        UpdateScoreUI();
+
+        // 이벤트 발생
+        OnScoreChanged?.Invoke(_currentScore);
+        Debug.Log($"Score subtracted: {amount}. Total score: {_currentScore}");
     }
 
     // 점수 초기화 메서드
