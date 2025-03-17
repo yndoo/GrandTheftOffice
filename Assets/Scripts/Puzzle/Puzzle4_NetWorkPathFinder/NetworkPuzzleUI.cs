@@ -120,7 +120,7 @@ public class NetworkPuzzleUI : MonoBehaviour
                     }
 
                     // 노드 설정
-                    nodeUI.Setup(node.id, node.isActive, nodeType, enhancedNode.energyCost);
+                    nodeUI.Setup(node.id, node.isActive, nodeType, enhancedNode.energyCost, 5f);
                 }
                 else
                 {
@@ -133,7 +133,7 @@ public class NetworkPuzzleUI : MonoBehaviour
                 // 위치 설정 (간단한 원형 배치 또는 그리드 배치)
                 // 원형 배치
                 float angle = (360f / allNodes.Count) * i;
-                float radius = 180f; // 더 큰 반경 (노드가 많을 경우)
+                float radius = 360f; // 더 큰 반경 (노드가 많을 경우)
                 Vector2 position = new Vector2(
                     Mathf.Cos(angle * Mathf.Deg2Rad) * radius,
                     Mathf.Sin(angle * Mathf.Deg2Rad) * radius
@@ -254,12 +254,8 @@ public class NetworkPuzzleUI : MonoBehaviour
                     // 타이머 노드인 경우 타이머 상태 업데이트
                     if (enhancedNode.nodeType == NodeType.Timer && node.isActive)
                     {
-                        // 타이머 노드 ID가 timerNodes 딕셔너리에 있는지 확인
-                        // 실제로는 EnhancedNetworkPuzzle의 public 메서드를 통해 타이머 정보를 얻어야 함
-                        float timerDuration = enhancedNode.timerDuration;
-                        float remainingTime = timerDuration; // 실제로는 퍼즐 컨트롤러에서 가져와야 함
-
-                        nodeUI.StartTimer(timerDuration);
+                        // 타이머 시작
+                        nodeUI.StartTimer(enhancedNode.timerDuration);
                     }
 
                     // 에너지가 부족한 경우 시각적 표시
@@ -280,18 +276,18 @@ public class NetworkPuzzleUI : MonoBehaviour
         {
             int remainingEnergy = puzzleController.GetRemainingEnergy();
             int totalEnergy = 10; // 총 에너지 (실제로는 퍼즐 컨트롤러에서 가져와야 함)
-            energyText.text = $"에너지: {remainingEnergy}/{totalEnergy}";
+            energyText.text = $"Energy: {remainingEnergy}/{totalEnergy}";
         }
 
         // 타이머 정보 업데이트
         if (timerText != null)
         {
             float remainingTime = puzzleController.GetRemainingTime();
-            timerText.text = $"시간: {Mathf.CeilToInt(remainingTime)}초";
+            timerText.text = $"Time: {Mathf.CeilToInt(remainingTime)}sec";
 
             if (timerFillImage != null)
             {
-                float totalTime = 60f; // 총 제한 시간 (실제로는 퍼즐 컨트롤러에서 가져와야 함)
+                float totalTime = puzzleController.GetTotalTime();
                 timerFillImage.fillAmount = remainingTime / totalTime;
             }
         }

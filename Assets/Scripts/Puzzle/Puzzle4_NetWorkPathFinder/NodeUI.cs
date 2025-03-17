@@ -31,6 +31,7 @@ public class NodeUI : MonoBehaviour
     private float timerDuration = 0f;
     private float remainingTime = 0f;
     private bool isTimerActive = false;
+    private bool isTimerStarted = false;
 
     // 노드 타입별 색상
     private Color normalActiveColor = new Color(0.2f, 0.7f, 1f);
@@ -48,11 +49,12 @@ public class NodeUI : MonoBehaviour
 
     private Coroutine timerCoroutine;
 
-    public void Setup(int id, bool isActive, NodeType type = NodeType.Normal, int cost = 1)
+    public void Setup(int id, bool isActive, NodeType type = NodeType.Normal, int cost = 1, float timerDuration = 0f)
     {
         nodeId = id;
         nodeType = type;
         energyCost = cost;
+        this.timerDuration = timerDuration; // timerDuration 값 설정
 
         // 텍스트 업데이트
         idText.text = id.ToString();
@@ -60,7 +62,8 @@ public class NodeUI : MonoBehaviour
 
         // 버튼 이벤트 연결
         button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => {
+        button.onClick.AddListener(() =>
+        {
             OnNodeClicked?.Invoke(nodeId);
         });
 
@@ -83,7 +86,11 @@ public class NodeUI : MonoBehaviour
         {
             StopTimer();
         }
-
+        else if (!isTimerActive && isActive && nodeType == NodeType.Timer && !isTimerStarted)
+        {
+            // 노드가 활성화되고 타이머가 아직 시작되지 않았다면 타이머 시작
+            StartTimer(timerDuration);
+        }
         // 색상 설정
         Color baseColor = GetNodeColor(isActive);
         backgroundImage.color = baseColor;
@@ -160,13 +167,21 @@ public class NodeUI : MonoBehaviour
     {
         if (nodeType != NodeType.Timer) return;
 
+        if (isTimerStarted && isTimerActive) return;
+
         timerDuration = duration;
         remainingTime = duration;
         isTimerActive = true;
+        isTimerStarted = true;
 
         if (timerCoroutine != null)
         {
             StopCoroutine(timerCoroutine);
+        }
+
+        if (timerFillImage != null)
+        {
+            timerFillImage.fillAmount = 1;
         }
 
         timerCoroutine = StartCoroutine(UpdateTimerUI());
@@ -176,6 +191,7 @@ public class NodeUI : MonoBehaviour
     public void StopTimer()
     {
         isTimerActive = false;
+        isTimerStarted = false;
         remainingTime = 0;
 
         if (timerCoroutine != null)
@@ -201,15 +217,16 @@ public class NodeUI : MonoBehaviour
             if (timerFillImage != null)
             {
                 timerFillImage.fillAmount = remainingTime / timerDuration;
+                Debug.Log("Timer updated, remaining time: " + remainingTime); // 디버그 로그 추가
             }
 
             // 타이머가 끝나면 이벤트 발생 (필요한 경우)
             if (remainingTime <= 0)
             {
                 isTimerActive = false;
-
+                isTimerStarted = false;
+                Debug.Log("Timer ended"); // 디버그 로그 추가
                 // 여기에 타이머 종료 시 실행할 코드 추가
-                
             }
 
             yield return null;

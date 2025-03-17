@@ -337,6 +337,11 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
     {
         return remainingTime;
     }
+    // 전체 시간 반환
+    public float GetTotalTime()
+    {
+        return puzzleTimeLimit;
+    }
     // 퍼즐 리셋
     public void ResetPuzzle()
     {
