@@ -6,12 +6,16 @@ public class CCTV : Enemy
 {
     // 회전 관련
     public float rotationSpeed = 30f;
+    public int score = 10;
     private float rotationAngle = 45f;
     private float initialRotation;
 
     // 감지 관련
     public float detectionDistance = 7f; // 감지 거리
     public float detectionAngle = 45f;   // 시야각
+    private float detectionCooldown = 3f; // 점수 차감 쿨다운 (3초)
+    private float lastDetectionTime = -3f; // 마지막 감지 시간 (초기값을 -쿨다운 값으로 설정)
+
 
     private CCTVFieldOfView fov;
 
@@ -59,7 +63,12 @@ public class CCTV : Enemy
                         if (raycastHit.collider.CompareTag(playerTag))
                         {
                             Debug.Log("Player detected!");
-                            OnDetect();
+                            // 점수 차감 쿨다운 적용 (마지막 감지 시간 + 쿨다운보다 현재 시간이 크면 실행)
+                            if (Time.time >= lastDetectionTime + detectionCooldown)
+                            {
+                                lastDetectionTime = Time.time; // 마지막 감지 시간 업데이트
+                                OnDetect();
+                            }
                         }
                     }
                 }
@@ -77,8 +86,8 @@ public class CCTV : Enemy
 
     private void OnDetect()
     {
-        GameManager.Instance.GameOver();
-        Debug.Log("CCTV detected the player!");
+        Debug.Log("OnDetect");
+        ScoreManager.Instance.SubtractScore(score);
     }
 
     public override void Attack() { }

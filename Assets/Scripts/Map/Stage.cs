@@ -27,6 +27,7 @@ public class Stage : MonoBehaviour, I_Interactable
         // 1. isClear 가 true 면 활성화
         // 2. stageNumber == saveClearedStage + 1 이면 활성화
         // 3. 그 외 비활성화
+        
         if (isClear || stageNumber == saveClearedStage + 1)
         {
             if (isClear)
@@ -96,7 +97,7 @@ public class Stage : MonoBehaviour, I_Interactable
 
     public string SetPrompt()
     {
-        return "aaa";
+        return "${stageNumber}번째 방으로 이동합니다.";
     }
 }
 

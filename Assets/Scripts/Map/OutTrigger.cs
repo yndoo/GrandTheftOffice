@@ -69,8 +69,6 @@ public class OutTrigger : MonoBehaviour
                     // 씬에서 오브젝트 삭제
                     Destroy(other.gameObject);
 
-                    Debug.Log($"맞고! {other.gameObject.name}을 삭제하고 {QPrefabs[matchedIndex].name}을 저장함.");
-                    
                     CheckOut();
                 }
             }
