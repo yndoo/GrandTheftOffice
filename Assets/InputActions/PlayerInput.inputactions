@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RotateMove",
+                    "type": "Value",
+                    "id": "ca4df31b-4f83-44a8-b472-10366bc01351",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -141,7 +150,7 @@
                 {
                     "name": "",
                     "id": "6555f9ba-f474-4d35-a9ba-f27fa75503d9",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/#(F)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -170,6 +179,39 @@
                     "action": "HoldingRotate",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "82bad0ba-0aa3-4d71-a7ef-d309ecb2940f",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "8d388c51-7feb-42dc-90ca-61fd8ed7e851",
+                    "path": "<Keyboard>/#(Q)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "6087a0a7-3fd5-4e39-9a67-14b4d2ae8dde",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

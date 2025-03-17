@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
@@ -18,9 +19,12 @@ public class DragDrop : MonoBehaviour
     public Transform holdPositon;
 
     public float pickupRange = 5f;
+    private float direction = 0f;
+    private float mouseDirection = 0f;
     private float heldDistance;
 
     private Coroutine RotateCoroutine;
+    private Coroutine RotatfrontCoroutine;
 
     void Start()
     {
@@ -91,17 +95,54 @@ public class DragDrop : MonoBehaviour
 
     public void OnHoldingRotate(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started || context.phase == InputActionPhase.Performed)
         {
-            RotateCoroutine = StartCoroutine(RotateItem());
+            mouseDirection = context.ReadValue<float>();
+            mouseDirection = Mathf.Clamp(mouseDirection, -1f, 1f);
+            if (RotatfrontCoroutine == null)
+            {
+                RotatfrontCoroutine = StartCoroutine(RotatefronteItem());
+            }
+           
         }
         else if(context.phase == InputActionPhase.Canceled)
         {
-            if(RotateCoroutine != null)
+            if(RotatfrontCoroutine != null)
+            {
+                StopCoroutine(RotatfrontCoroutine);
+                RotatfrontCoroutine = null;
+            }
+        }
+    }
+
+    public void OnRotateMove(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started || context.phase == InputActionPhase.Performed)
+        {
+            direction = context.ReadValue<float>();
+            direction = Mathf.Clamp(direction, -1f, 1f);
+            if (RotateCoroutine == null)
+           {
+                RotateCoroutine = StartCoroutine(RotateItem());
+            }
+
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            if (RotateCoroutine != null)
             {
                 StopCoroutine(RotateCoroutine);
                 RotateCoroutine = null;
             }
+        }
+
+   }
+    IEnumerator RotatefronteItem()
+    {
+        while (true)
+        {        
+                heldItem.gameObject.transform.Rotate(Vector3.right * 50 * Time.deltaTime);
+                yield return null;
         }
     }
 
@@ -109,7 +150,14 @@ public class DragDrop : MonoBehaviour
     {
         while(true)
         {
-            heldItem.gameObject.transform.Rotate(Vector3.right * 50 * Time.deltaTime);
+            if(direction <  0)
+            {
+                heldItem.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
+            }
+            else if(direction > 0)
+            {
+                heldItem.gameObject.transform.Rotate(Vector3.up * -50 * Time.deltaTime);         
+            }
             yield return null;
         }
     }
