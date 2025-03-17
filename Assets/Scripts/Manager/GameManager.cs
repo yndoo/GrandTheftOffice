@@ -6,6 +6,8 @@ public class GameManager : Singleton<GameManager>
 {
     public GameData CurrentGameData {  get; private set; }
     public int LastClearedStage {  get; set; }
+    
+    public int CurrentStage {  get; set; }
 
     private void Awake()
     {

@@ -31,7 +31,14 @@ public class Button : MonoBehaviour, I_Interactable
 
         if (OutTrigger)
         {
-            GameManager.Instance.SaveGame();
+            int saveStage = GameManager.Instance.LastClearedStage;
+            int currentStage = GameManager.Instance.CurrentStage;
+            
+            if (saveStage < currentStage)
+            {
+                GameManager.Instance.LastClearedStage = currentStage;
+            }
+            
             SceneManager.Instance.LoadScene("StageScene");
         }
     }
