@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class UIManager :  Singleton<UIManager>
 {
-    public GameObject interactionPanel; // 인터랙션 UI 패널
-    public TextMeshProUGUI promptText; // 인터랙션 텍스트
+    [Header("UI 패널 참조")]
+    [SerializeField] private GameObject interactionPanel;
+    [SerializeField] private GameClearUI gameClearUI;
+    [SerializeField] private TextMeshProUGUI promptText; // 인터랙션 텍스트
 
 
 
@@ -22,4 +24,11 @@ public class UIManager :  Singleton<UIManager>
         interactionPanel.SetActive(false);
     }
 
+    public void ShowGameClearUI(float clearTime, int score, bool isNewHighScore = false)
+    {
+        if (gameClearUI != null)
+        {
+            gameClearUI.ShowClearUI(clearTime, score, isNewHighScore);
+        }
+    }
 }
