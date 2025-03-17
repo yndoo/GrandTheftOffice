@@ -7,6 +7,7 @@ public class Button : MonoBehaviour, I_Interactable
 {
     public bool isInteract = false;
     public bool isClickable = true;
+    public bool OutTrigger = false;
     
     private float interactAngle1 = 90f;
     private float interactAngle2 = -90f;
@@ -19,25 +20,36 @@ public class Button : MonoBehaviour, I_Interactable
     {
         if (isClickable)
         {
+            Debug.Log(isClickable);
             isClickable = false;
-            
+            Debug.Log(isClickable);
             isInteract = !isInteract;
             transform.Rotate(new Vector3(0, 0, isInteract ? interactAngle1 : interactAngle2));
-            if (isInteract)
-            {
-                firePrefab.SetActive(true);
-            }
-            else
-            {
-                firePrefab.SetActive(false);
-            }   
+            Debug.Log(isInteract);
+            firePrefab.SetActive(isInteract);
+        }
+
+        if (OutTrigger)
+        {
+            GameManager.Instance.SaveGame();
+            SceneManager.Instance.LoadScene("StageScene");
         }
     }
 
     
     public string SetPrompt()
     {
-        string str = isInteract ? "불 끄기" : "불 켜기";
-        return str;
+        if (OutTrigger)
+        {
+            return "탈출하시겠습니까?";
+        }
+        
+        if (isClickable)
+        {
+            return "불을 켜서 게임을 시작하세요.";
+        }
+
+        return "물건을 다 챙겨야 탈출할 수 있습니다.";
     }
+
 }
