@@ -582,10 +582,10 @@ MonoBehaviour:
     connections: 01000000030000000500000007000000
     isActive: 0
     nodeType: 5
-    affectedNodes: 
+    affectedNodes: 05000000
     timerDuration: 5
     energyCost: 2
-    activationSequence: 05000000
+    activationSequence: 
     description: 
   - id: 5
     connections: 020000000400000008000000
