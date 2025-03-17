@@ -1,23 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public enum GameState
-{
-    Playing,
-    Paused,
-    GameOver,
-    LevelComplete
-}
 
 public class UIManager :  Singleton<UIManager>
 {
-    // 현재 게임 상태
-    private GameState _currentGameState = GameState.Playing;
+    public GameObject interactionPanel; // 인터랙션 UI 패널
+    public TextMeshProUGUI promptText; // 인터랙션 텍스트
 
-    // 현재 점수
-    private int _currentScore = 0;
 
-    // 현재 레벨
-    private int _currentLevel = 1;
+    public void ShowInteractionText(string message)
+    {
+        promptText.text = message;
+    }
+
+
+    public void ShowInteractionUI()
+    {       
+        interactionPanel.SetActive(true);
+    }
+
+    public void HideInteractionUI()
+    {
+        interactionPanel.SetActive(false);
+    }
+
 }
