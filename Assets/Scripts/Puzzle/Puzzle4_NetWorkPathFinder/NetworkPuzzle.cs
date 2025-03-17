@@ -24,7 +24,7 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
     {
         // 초기 타이머 설정
         remainingTime = puzzleTimeLimit;
-        isTimerActive = true;
+        isTimerActive = false;
 
         // 초기 노드 활성화
         foreach (int nodeId in startNodeIds)
