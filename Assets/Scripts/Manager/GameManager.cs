@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     public void LoadGame()
     {
         CurrentGameData = DataManager.LoadData<GameData>("/SaveData");
-        if(CurrentGameData == null) CurrentGameData = new GameData();
+        if(CurrentGameData == null) CurrentGameData = new GameData(); 
 
         LastClearedStage = CurrentGameData.LastClearedChapter;
     }
