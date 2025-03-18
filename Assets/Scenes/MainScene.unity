@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.5748165, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -759,7 +759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8452574377248066727, guid: 346e3b4b311122b44ae6296e80696fab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511535589697400291, guid: 346e3b4b311122b44ae6296e80696fab, type: 3}
       propertyPath: Type
@@ -812,6 +812,11 @@ Transform:
   - {fileID: 240119847}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &505576155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7627828872069064435, guid: 70d4d5016aacc214db8b5296b6a18b09, type: 3}
+  m_PrefabInstance: {fileID: 1907355886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539951526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,6 +1889,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 539951527}
     m_Modifications:
     - target: {fileID: 379426662938366801, guid: e7241af17234a72489e14a638fc101a7, type: 3}
+      propertyPath: Reward.Score
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 379426662938366801, guid: e7241af17234a72489e14a638fc101a7, type: 3}
       propertyPath: colorDisplay
       value: 
       objectReference: {fileID: 1141045952}
@@ -1902,7 +1911,7 @@ PrefabInstance:
     - target: {fileID: 379426662938366801, guid: e7241af17234a72489e14a638fc101a7, type: 3}
       propertyPath: Reward.RewardHint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 505576155}
     - target: {fileID: 4650861126314394624, guid: e7241af17234a72489e14a638fc101a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6904588
@@ -2329,6 +2338,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 734699178}
     m_Modifications:
+    - target: {fileID: 461428619048118916, guid: 69fbcc367e7617a49a33ff20b79cad9f, type: 3}
+      propertyPath: Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3219469926357017463, guid: 69fbcc367e7617a49a33ff20b79cad9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.642651
@@ -2432,7 +2445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7627828872069064435, guid: 70d4d5016aacc214db8b5296b6a18b09, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9171100107348057429, guid: 70d4d5016aacc214db8b5296b6a18b09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2521,6 +2534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 734699178}
     m_Modifications:
+    - target: {fileID: 5251408862025949748, guid: ade628be352417f418868547b5a96ac0, type: 3}
+      propertyPath: Type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5645245674324302200, guid: ade628be352417f418868547b5a96ac0, type: 3}
       propertyPath: m_Name
       value: Organizable File Black

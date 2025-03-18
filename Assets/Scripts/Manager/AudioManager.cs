@@ -38,9 +38,9 @@ public class AudioManager : Singleton<AudioManager>
     {
         base.Awake();
         bgmSource.loop = true;
-        bgmSource.volume = 0.4f;
+        bgmSource.volume = 0.1f;
         bgmSource.playOnAwake = false;
-        sfxSource.volume = 0.6f;
+        sfxSource.volume = 0.1f;
         sfxSource.playOnAwake = false;
 
         PlayBGM(EBGMType.MainBGM);
