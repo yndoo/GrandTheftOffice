@@ -56,7 +56,7 @@ public class NetworkPuzzleUI : MonoBehaviour
 
     private void Update()
     {
-        
+
         UpdateUI();
     }
     private void OnEnable()
@@ -242,6 +242,12 @@ public class NetworkPuzzleUI : MonoBehaviour
                 StopCoroutine(uiUpdateCoroutine);
                 uiUpdateCoroutine = null;
             }
+            // 5초 후에 UI 비활성화 메서드 호출
+            if (gameObject.activeSelf)
+            {
+                Invoke(nameof(Hide), 5f);
+            }
+
         }
         else
         {
@@ -369,6 +375,14 @@ public class NetworkPuzzleUI : MonoBehaviour
         if (uiUpdateCoroutine == null)
         {
             uiUpdateCoroutine = StartCoroutine(UpdateUICoroutine());
+        }
+    }
+
+    private void Hide()
+    {
+        if (gameObject != null)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

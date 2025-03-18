@@ -367,4 +367,38 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
         }
     }
 
+    public string GetNodeHint(int nodeId)
+    {
+        EnhancedNetworkNode node = nodes.Find(n => n.id == nodeId);
+        if (node != null && !string.IsNullOrEmpty(node.description))
+        {
+            string baseHint = node.description;
+            string typeHint = "";
+
+            // 노드 타입에 따른 추가 힌트
+            switch (node.nodeType)
+            {
+                case NodeType.Amplifier:
+                    typeHint = " (활성화하면 다른 노드의 에너지 비용을 줄입니다)";
+                    break;
+                case NodeType.Timer:
+                    typeHint = $" (활성화 후 {node.timerDuration}초간만 활성화 상태 유지)";
+                    break;
+                case NodeType.Toggle:
+                    typeHint = " (다른 노드의 상태를 반전시킵니다)";
+                    break;
+                case NodeType.Blocker:
+                    typeHint = " (일부 노드의 활성화를 방지합니다)";
+                    break;
+            }
+            return baseHint + typeHint;
+        }
+        return string.Empty; // 기본 반환 값 추가
+    }
+
+    public string GetSolutionHint()
+    {
+        return "해결 경로 힌트: 노드 0 → 1 → 3(증폭) → 5(타이머) → 7 → 8(목표)";
+    }
+
 }

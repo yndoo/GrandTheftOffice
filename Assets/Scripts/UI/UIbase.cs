@@ -17,5 +17,7 @@ public abstract class UIBase : MonoBehaviour
             panelRoot.SetActive(false);
         }
     }
+
+
 }
 
