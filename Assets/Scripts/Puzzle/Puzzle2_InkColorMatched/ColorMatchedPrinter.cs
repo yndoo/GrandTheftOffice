@@ -10,10 +10,6 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
     [SerializeField] private SpriteRenderer colorDisplay;
 
     private Color combinedColor;
-    private void Start()
-    {
-        Debug.Log($"ColorMatchedPrinter initialized on {gameObject.name}");
-    }
     public void Update()
     {
         // 매 프레임마다 색상 확인 (잉크가 올려질 때마다 바로 반영)
@@ -24,7 +20,6 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
 
     private void CheckAndPrint()
     {
-        Debug.Log("CheckAndPrint called");
         if (IsCorrect())
         {
             AudioManager.Instance.PlaySFX(ESfxType.PrinterSound);
@@ -38,9 +33,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
 
     public void OnInteract()
     {
-        Debug.Log("OnInteract called");
         CheckAndPrint();
-        Debug.Log("Interacted");
     }
 
     public string SetPrompt()
@@ -56,14 +49,12 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
     public void FindInk()
     {
         combinedColor = Color.black; // 초기화
-        Debug.Log("FindInk called");
 
         foreach (MatchingSystem zone in inkZone)
         {
             if (zone.IsMatched && zone is InkMatchingZone inkMatchingZone)
             {
                 combinedColor += inkMatchingZone.GetInkColor();
-                Debug.Log($"Ink color added: {inkMatchingZone.GetInkColor()}");
             }
         }
 
@@ -72,7 +63,6 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
         combinedColor.g = Mathf.Clamp01(combinedColor.g);
         combinedColor.b = Mathf.Clamp01(combinedColor.b);
 
-        Debug.Log($"Combined color: {combinedColor}");
     }
 
     // 스프라이트 색상 업데이트
@@ -88,7 +78,6 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
     public bool IsCorrect()
     {
         // FindInk()는 매 프레임 호출되므로 여기서 다시 호출할 필요 없음
-        Debug.Log("IsCorrect called");
 
         float tolerance = 0.05f; // 허용 오차
         bool isCorrect = Mathf.Abs(combinedColor.r - targetColor.r) < tolerance &&
@@ -101,7 +90,6 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
             GetReward(); // 정답이면 종이 생성
         }
 
-        Debug.Log($"IsCorrect result: {isCorrect}");
         return isCorrect;
     }
 }
