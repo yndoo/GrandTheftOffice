@@ -32,7 +32,7 @@ public class UIManager : Singleton<UIManager>
         base.Awake();
 
         // UI 참조 초기화
-        RefreshUIReferences();
+        //RefreshUIReferences();
         IsUIActive = false;
         // 씬 로드 이벤트 리스너 등록
         UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
@@ -179,10 +179,6 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowInteractionUI(string message)
     {
-        if (interactionPanel == null)
-        {
-            RefreshUIReferences();
-        }
 
         if (interactionPanel != null)
         {
@@ -328,7 +324,7 @@ public class UIManager : Singleton<UIManager>
     public void OnSceneTransition()
     {
         // 참조 갱신
-        RefreshUIReferences();
+        //RefreshUIReferences();
 
         // 게임플레이 UI 비활성화
         if (gameplayUIContainer != null)
@@ -361,7 +357,7 @@ public class UIManager : Singleton<UIManager>
     {
         if (gameClearUI == null)
         {
-            RefreshUIReferences();
+            //RefreshUIReferences();
         }
 
         if (gameClearUI != null)
