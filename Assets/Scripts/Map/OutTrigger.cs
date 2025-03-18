@@ -58,6 +58,7 @@ public class OutTrigger : MonoBehaviour
                 }
                 else
                 {
+                    AudioManager.Instance.PlaySFX(ESfxType.Bag);
                     if (playerDragDrop.isHolding)
                     {
                         playerDragDrop.Drop();
