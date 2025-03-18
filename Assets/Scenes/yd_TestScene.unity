@@ -299,14 +299,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7139148749346660707, guid: 09c53329a9fafe841ac51fc6a6ae1663, type: 3}
-      propertyPath: SfxClips.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139148749346660707, guid: 09c53329a9fafe841ac51fc6a6ae1663, type: 3}
-      propertyPath: SfxClips.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2eb9aeeb011b6fb4a9e951b317633907, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

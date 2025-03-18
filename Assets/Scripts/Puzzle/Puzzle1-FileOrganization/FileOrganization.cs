@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class FileOrganization : Puzzle, IPuzzleCheckable
 {
-    public AudioClip putClip;
-    public AudioSource audioSource;
-
     List<MatchingZone> matchingZones;
 
     private void Awake()
@@ -19,18 +16,6 @@ public class FileOrganization : Puzzle, IPuzzleCheckable
         }
     }
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    public void PutInFolder() //사운드
-    {
-        audioSource.PlayOneShot(putClip);
-
-    }
-
-
     public bool IsCorrect()
     {
         for(int i = 0; i <matchingZones.Count; i++)
@@ -39,6 +24,7 @@ public class FileOrganization : Puzzle, IPuzzleCheckable
         }
 
         Debug.Log("퍼즐 정답");
+        AudioManager.Instance.PlaySFX(ESfxType.FolderSound);
 
         // 퍼즐 완료 시 오브젝트 고정 
         for (int i = 0; i < matchingZones.Count; i++)

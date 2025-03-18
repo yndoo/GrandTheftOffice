@@ -70,6 +70,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
 
         if (isCorrect)
         {
+            AudioManager.Instance.PlaySFX(ESfxType.PrinterSound);
             GetReward(); // 정답이면 종이 생성
         }
 

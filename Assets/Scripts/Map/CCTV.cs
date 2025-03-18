@@ -86,6 +86,7 @@ public class CCTV : Enemy
 
     private void OnDetect()
     {
+        AudioManager.Instance.PlaySFX(ESfxType.Buzzer);
         Debug.Log("OnDetect");
         ScoreManager.Instance.SubtractScore(score);
     }

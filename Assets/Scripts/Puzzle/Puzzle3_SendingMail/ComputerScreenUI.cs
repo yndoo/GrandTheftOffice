@@ -45,6 +45,7 @@ public class ComputerScreenUI : MonoBehaviour
     /// </summary>
     void OnClickOpenMessenger()
     {
+        AudioManager.Instance.PlaySFX(ESfxType.MouseClick);
         Messenger.SetActive(!Messenger.activeSelf);
     }
 
@@ -56,6 +57,8 @@ public class ComputerScreenUI : MonoBehaviour
         if (puzzle?.IsCompleted == true) return; // 퍼즐 완료 후 재전송 불가
 
         SentMessage.SetActive(true);
+        AudioManager.Instance.PlaySFX(ESfxType.MouseClick);
+        AudioManager.Instance.PlaySFX(ESfxType.Message);
 
         puzzle?.GetReward();
         Debug.Log("퍼즐3 완료");

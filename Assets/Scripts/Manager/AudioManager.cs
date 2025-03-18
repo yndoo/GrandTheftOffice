@@ -7,14 +7,23 @@ using UnityEngine.UI;
 public enum EBGMType
 {
     MainBGM,
+    Clear,
 }
 public enum ESfxType
 {
-    ClearSound,
-    PutSound,
+    ButtonSound,
     InkSound,
     LightSound,
     FolderSound,
+    PrinterSound,
+    InkBottle,
+    PickUp,
+    Drop,
+    Click,
+    Message,
+    MouseClick,
+    Buzzer,
+    NodeSwitch,
 }
 
 public class AudioManager : Singleton<AudioManager>
@@ -28,15 +37,10 @@ public class AudioManager : Singleton<AudioManager>
     protected override void Awake()
     {
         base.Awake();
-
-        if (bgmSource != null && sfxSource != null)
-        {
-            bgmSource = gameObject.AddComponent<AudioSource>();
-            sfxSource = gameObject.AddComponent<AudioSource>();
-        }
-
         bgmSource.loop = true;
+        bgmSource.volume = 0.5f;
         bgmSource.playOnAwake = false;
+        sfxSource.volume = 0.6f;
         sfxSource.playOnAwake = false;
     }
     #region 배경음악

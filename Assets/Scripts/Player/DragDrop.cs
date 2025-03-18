@@ -48,7 +48,7 @@ public class DragDrop : MonoBehaviour
                 heldItem.useGravity = false;
                 isHolding = true;
             }
-
+            AudioManager.Instance.PlaySFX(ESfxType.PickUp);
             return;
         }
     }
@@ -71,6 +71,7 @@ public class DragDrop : MonoBehaviour
  
     public void Drop()
     {
+        AudioManager.Instance.PlaySFX(ESfxType.Drop);
         heldItem.useGravity = true ;
         heldItem.includeLayers = oblayer;
         isHolding = false ;

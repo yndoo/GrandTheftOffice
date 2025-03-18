@@ -50,12 +50,21 @@ MonoBehaviour:
   sfxSource: {fileID: 5675878523213452609}
   BgmClips:
   - {fileID: 8300000, guid: 46948b3673f01a94aa955312b6436a2f, type: 3}
-  SfxClips:
   - {fileID: 8300000, guid: e8973a6c09db075469fb2230adf89b25, type: 3}
+  SfxClips:
   - {fileID: 8300000, guid: d0ae2e530e054be4c86bdf93231ffdbc, type: 3}
   - {fileID: 8300000, guid: 212621d61957a9743b72d2df84a8571b, type: 3}
   - {fileID: 8300000, guid: af75585fa8ca61b43b48e0e532f03c12, type: 3}
   - {fileID: 8300000, guid: 2eb9aeeb011b6fb4a9e951b317633907, type: 3}
+  - {fileID: 8300000, guid: cd89f28fdbbb9a14299c262ef3f4f23a, type: 3}
+  - {fileID: 8300000, guid: b690568237666d44a947ba3a3205ed07, type: 3}
+  - {fileID: 8300000, guid: 054ba1680da6ce448bd0876f9060560c, type: 3}
+  - {fileID: 8300000, guid: aac567e749ca0994f9e0696cacb0de4d, type: 3}
+  - {fileID: 8300000, guid: d503b617bb3c3ed4e8fbd7e5af29ab73, type: 3}
+  - {fileID: 8300000, guid: ee8be69d34acae14eaff0f379fbcbf77, type: 3}
+  - {fileID: 8300000, guid: 10ccf1f287fbf674f9d8fa3a0209ae05, type: 3}
+  - {fileID: 8300000, guid: 5364d8259e49daf41b7fae4d575a528c, type: 3}
+  - {fileID: 8300000, guid: 919ed4bc610c9044284ff013c07b7a31, type: 3}
 --- !u!1 &1523282383092489496
 GameObject:
   m_ObjectHideFlags: 0

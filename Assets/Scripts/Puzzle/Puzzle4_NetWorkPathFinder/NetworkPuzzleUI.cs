@@ -217,6 +217,9 @@ public class NetworkPuzzleUI : MonoBehaviour
 
     private void HandleNodeClick(int nodeId)
     {
+        // 클릭 사운드
+        AudioManager.Instance.PlaySFX(ESfxType.NodeSwitch);
+
         // 노드 토글
         puzzleController.ToggleNode(nodeId);
 

@@ -18,6 +18,7 @@ public class Button : MonoBehaviour, I_Interactable
     // 플레이어 인풋 이벤트 발생 시 실행 함수
     public void OnInteract()
     {
+        AudioManager.Instance.PlaySFX(ESfxType.LightSound);
         if (isClickable)
         {
             isClickable = false;
