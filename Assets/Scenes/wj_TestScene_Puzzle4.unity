@@ -1644,6 +1644,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261971279923076722, guid: 554fc18b8a7090140bb6f294336f577b, type: 3}
+      propertyPath: isTimerRunning
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1672343604331307037, guid: 554fc18b8a7090140bb6f294336f577b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 732.1875
@@ -1701,6 +1705,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27346165302069174, guid: 90d6e21caa7469740a3bffcff5722d13, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7352625442876028182, guid: 90d6e21caa7469740a3bffcff5722d13, type: 3}
       propertyPath: m_Name
       value: ClearTest
