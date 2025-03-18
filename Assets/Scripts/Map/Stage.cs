@@ -97,7 +97,7 @@ public class Stage : MonoBehaviour, I_Interactable
 
     public string SetPrompt()
     {
-        return "${stageNumber}번째 방으로 이동합니다.";
+        return "";
     }
 }
 
