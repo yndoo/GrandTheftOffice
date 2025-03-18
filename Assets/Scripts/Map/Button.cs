@@ -9,9 +9,6 @@ public class Button : MonoBehaviour, I_Interactable
     public bool isClickable = true;
     public bool OutTrigger = false;
     
-    private float interactAngle1 = 90f;
-    private float interactAngle2 = -90f;
-    
     // Prefab 가져ㅑ오기 
     public GameObject firePrefab;
 
@@ -21,6 +18,7 @@ public class Button : MonoBehaviour, I_Interactable
         AudioManager.Instance.PlaySFX(ESfxType.LightSound);
         if (isClickable)
         {
+            Debug.Log("Clicked");
             isClickable = false;
             
             isInteract = !isInteract;
