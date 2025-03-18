@@ -12,7 +12,7 @@ using UnityEngine.InputSystem.HID;
 public class DragDrop : MonoBehaviour
 
 {
-    public Camera camera;
+    public Camera _camera;
     public bool isHolding = false;
     public LayerMask oblayer;
     public LayerMask cantDragLayer;
@@ -29,12 +29,12 @@ public class DragDrop : MonoBehaviour
 
     void Start()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
     }
 
     public void Pickup()
     {
-        Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2)); //상호작용레이어감지
+        Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2)); //상호작용레이어감지
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit,pickupRange, oblayer))
@@ -85,7 +85,7 @@ public class DragDrop : MonoBehaviour
         {
             Vector3 targetPosition = holdPositon.position;
 
-            Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2)); // 벽뚫 방지
+            Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2)); // 벽뚫 방지
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, heldDistance, cantDragLayer))
