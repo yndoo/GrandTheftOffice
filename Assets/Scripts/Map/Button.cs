@@ -15,6 +15,7 @@ public class Button : MonoBehaviour, I_Interactable
     // 플레이어 인풋 이벤트 발생 시 실행 함수
     public void OnInteract()
     {
+        Debug.Log("Interacted");
         AudioManager.Instance.PlaySFX(ESfxType.LightSound);
         if (isClickable)
         {
@@ -35,7 +36,8 @@ public class Button : MonoBehaviour, I_Interactable
             {
                 GameManager.Instance.LastClearedStage = currentStage;
             }
-            SceneManager.Instance.LoadScene("StageScene");
+
+            UIManager.Instance.ShowGameClearUI();
         }
     }
 

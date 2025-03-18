@@ -62,7 +62,6 @@ public class CCTV : Enemy
                     {
                         if (raycastHit.collider.CompareTag(playerTag))
                         {
-                            Debug.Log("Player detected!");
                             // 점수 차감 쿨다운 적용 (마지막 감지 시간 + 쿨다운보다 현재 시간이 크면 실행)
                             if (Time.time >= lastDetectionTime + detectionCooldown)
                             {
@@ -87,7 +86,6 @@ public class CCTV : Enemy
     private void OnDetect()
     {
         AudioManager.Instance.PlaySFX(ESfxType.Buzzer);
-        Debug.Log("OnDetect");
         ScoreManager.Instance.SubtractScore(score);
     }
 

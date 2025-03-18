@@ -123,19 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &108217111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2637571987578478639, guid: 3d020d4dd556d54459bde935683c488b, type: 3}
-  m_PrefabInstance: {fileID: 1877083154}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &108217114
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108217111}
-  m_Enabled: 1
 --- !u!4 &280521950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4224994190511514, guid: dd51500d075471044aa9309d772f5b3e, type: 3}
@@ -954,10 +941,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2637571987578478639, guid: 3d020d4dd556d54459bde935683c488b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 108217114}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d020d4dd556d54459bde935683c488b, type: 3}
 --- !u!1001 &1895410969
 PrefabInstance:
@@ -1409,10 +1393,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5788233927267511468, guid: bb323923a2983cb4cb340422f85f83c8, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 963194227}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
