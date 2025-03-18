@@ -13,7 +13,7 @@ public class TimeManager : Singleton<TimeManager>
     protected override void Awake()
     {
         base.Awake();
-        Debug.Log("타임매니저 초기화");
+        
     }
 
     private void Update()

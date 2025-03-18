@@ -23,7 +23,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private List<string> autoStartGameScenes = new List<string>(); // 자동으로 게임을 시작할 씬 이름 목록
 
     private bool isGameStarted = false;
-    private bool needsUIRefresh = false;
+    private bool needsUIRefresh = true;
+
+    public bool IsUIActive { get;  set; }
 
     protected override void Awake()
     {
@@ -31,7 +33,7 @@ public class UIManager : Singleton<UIManager>
 
         // UI 참조 초기화
         RefreshUIReferences();
-
+        IsUIActive = false;
         // 씬 로드 이벤트 리스너 등록
         UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -48,9 +50,9 @@ public class UIManager : Singleton<UIManager>
         // UI 갱신이 필요한 경우 실행
         if (needsUIRefresh)
         {
-            RefreshUIReferences();
+            //RefreshUIReferences();
             UpdateUIState();
-            needsUIRefresh = false;
+            //needsUIRefresh = false;
         }
     }
 
@@ -260,6 +262,7 @@ public class UIManager : Singleton<UIManager>
             int seconds = Mathf.FloorToInt(time % 60f);
             int milliseconds = Mathf.FloorToInt((time * 100f) % 100f);
             timerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+            Debug.Log("타이머확인");
         }
     }
 
@@ -371,7 +374,7 @@ public class UIManager : Singleton<UIManager>
 
             // 현재 시간 가져오기
             float clearTime = TimeManager.Instance != null ? TimeManager.Instance.GetClearTime() : 0f;
-
+            IsUIActive = true;
             // 게임 종료시 커서 표시
             SetCursorVisibility(true);
 
@@ -384,6 +387,7 @@ public class UIManager : Singleton<UIManager>
         }
         else
         {
+            IsUIActive = false;
             Debug.LogError("GameClearUI를 찾을 수 없습니다!");
         }
     }

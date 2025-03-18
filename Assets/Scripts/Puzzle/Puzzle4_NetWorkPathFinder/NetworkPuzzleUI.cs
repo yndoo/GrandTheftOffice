@@ -58,8 +58,7 @@ public class NetworkPuzzleUI : MonoBehaviour
     }
 
     private void Update()
-    {
-
+    { 
         UpdateUI();
     }
     private void OnEnable()
@@ -71,8 +70,18 @@ public class NetworkPuzzleUI : MonoBehaviour
             // 커서 잠금 해제
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            UIManager.Instance.IsUIActive = true;
         }
+        
     }
+    private void OnDisable()
+    {
+        // UI가 비활성화될 때 커서 잠금
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        UIManager.Instance.IsUIActive = false;
+    }
+
     private void OnDestroy()
     {
         if (uiUpdateCoroutine != null)

@@ -27,8 +27,6 @@ public class GameClearUI : UIBase
             ScoreManager.Instance.OnScoreChanged += UpdateScoreText;
             ScoreManager.Instance.OnHighScoreChanged += UpdateHighScoreText;
         }
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     private void OnDisable()
@@ -128,6 +126,7 @@ public class GameClearUI : UIBase
     {
         // 메인 버튼 클릭 시 실행
         // 여기에 메인 메뉴로 이동하는 로직 추가
+        UIManager.Instance.IsUIActive = false;
         Debug.Log("메인 버튼 클릭됨");
         // UI 숨기기
         Hide();
