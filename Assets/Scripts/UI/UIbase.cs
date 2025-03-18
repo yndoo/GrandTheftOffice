@@ -14,7 +14,7 @@ public abstract class UIBase : MonoBehaviour
         // 기본 상태는 숨김
         if (panelRoot != null)
         {
-            panelRoot.SetActive(false);
+            //panelRoot.SetActive(false);
         }
     }
 

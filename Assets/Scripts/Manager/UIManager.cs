@@ -101,15 +101,12 @@ public class UIManager :  Singleton<UIManager>
             // 타이머 정지 (이미 다른 곳에서 정지시킬 수도 있음)
             TimeManager.Instance.StopTimer();
 
-            // 현재 점수와 시간 가져오기
-            int currentScore = ScoreManager.Instance.GetCurrentScore();
+            // 현재 시간 가져오기
             float clearTime = TimeManager.Instance.GetClearTime();
 
-            // 최고 점수 확인
-            bool isNewHighScore = ScoreManager.Instance.CheckAndUpdateHighScore();
-
-            // 게임 클리어 UI 표시
-            gameClearUI.ShowClearUI(clearTime, currentScore, isNewHighScore);
+            // 간단한 ShowClearUI 버전 호출 (float clearTime 만 전달)
+            // GameClearUI는 내부적으로 ScoreManager에서 점수와 최고 점수를 가져옵니다
+            gameClearUI.ShowClearUI(clearTime);
         }
     }
 

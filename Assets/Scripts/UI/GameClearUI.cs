@@ -29,6 +29,8 @@ public class GameClearUI : UIBase
             ScoreManager.Instance.OnScoreChanged += UpdateScoreText;
             ScoreManager.Instance.OnHighScoreChanged += UpdateHighScoreText;
         }
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnDisable()
@@ -59,13 +61,11 @@ public class GameClearUI : UIBase
         }
     }
 
-    public void ShowClearUI(float clearTime)
+    // 기본 ShowClearUI 메소드 - 내부적으로 실제 작업을 수행
+    private void SetupClearUI(float clearTime)
     {
-        Show();
-
         // 현재 점수 가져오기
         int currentScore = ScoreManager.Instance.GetCurrentScore();
-
         // 최고 점수 확인 및 갱신
         bool isNewHighScore = ScoreManager.Instance.CheckAndUpdateHighScore();
 
@@ -85,7 +85,6 @@ public class GameClearUI : UIBase
         {
             // 새로운 최고 점수 여부에 따라 표시
             highScoreText.gameObject.SetActive(isNewHighScore);
-
             if (isNewHighScore)
             {
                 highScoreText.text = "최고 점수: " + ScoreManager.Instance.GetHighScore().ToString();
@@ -93,11 +92,20 @@ public class GameClearUI : UIBase
         }
     }
 
+    // 새로운 버전의 ShowClearUI - UI를 표시하고 설정하는 함수
+    public void ShowClearUI(float clearTime)
+    {
+        Show();
+        SetupClearUI(clearTime);
+    }
+
     // 기존 오버로드된 메서드 (이전 버전과의 호환성 유지)
     public void ShowClearUI(float clearTime, int score, bool isNewHighScore)
     {
-        // 새 로직을 사용하는 메서드 호출
-        ShowClearUI(clearTime);
+        Show();
+        SetupClearUI(clearTime);
+
+
     }
 
     public void Show()
@@ -123,10 +131,8 @@ public class GameClearUI : UIBase
         // 다시 시작 버튼 클릭 시 실행
         // 여기에 게임 재시작 로직 추가
         Debug.Log("재시작 버튼 클릭됨");
-
         // 게임 재시작 시 점수 초기화
         ScoreManager.Instance.ResetScore();
-
         // UI 숨기기
         Hide();
     }
@@ -136,8 +142,9 @@ public class GameClearUI : UIBase
         // 메인 버튼 클릭 시 실행
         // 여기에 메인 메뉴로 이동하는 로직 추가
         Debug.Log("메인 버튼 클릭됨");
-
         // UI 숨기기
         Hide();
+        TimeManager.Instance.ResetTimer();
+        SceneManager.Instance.LoadScene("StageScene");
     }
 }
