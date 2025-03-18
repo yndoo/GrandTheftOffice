@@ -17,8 +17,6 @@ public class InkMatchingZone : MatchingSystem
     {
         if (other.TryGetComponent<Ink>(out Ink ink))
         {
-            AudioManager.Instance.PlaySFX(ESfxType.PrinterSound);
-
             // 잉크 객체를 감지하고 현재 객체로 설정
             currentInk = ink;
             // 위치 고정을 위해 Rigidbody 가져오기
@@ -44,7 +42,7 @@ public class InkMatchingZone : MatchingSystem
             }
 
             // 즉시 매칭 상태 설정
-            IsMatched = true;
+            IsMatched = true;   
         }
     }
 

@@ -589,7 +589,19 @@ MonoBehaviour:
     m_ActionId: dbf325da-40fc-47b5-bd56-885d20327931
     m_ActionName: New action map/HoldingRotate[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2993277809745090752}
+        m_TargetAssemblyTypeName: DragDrop, Assembly-CSharp
+        m_MethodName: OnRotateMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ca4df31b-4f83-44a8-b472-10366bc01351
     m_ActionName: New action map/RotateMove[/Keyboard/q,/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0

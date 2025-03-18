@@ -217,7 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 15
   playerTag: Player
-  rotationSpeed: 20
+  rotationSpeed: 10
+  score: 1
   detectionDistance: 7
   detectionAngle: 45
 --- !u!114 &253372196056956576

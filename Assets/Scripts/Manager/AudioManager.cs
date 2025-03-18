@@ -24,6 +24,7 @@ public enum ESfxType
     MouseClick,
     Buzzer,
     NodeSwitch,
+    Bag,
 }
 
 public class AudioManager : Singleton<AudioManager>
@@ -40,7 +41,7 @@ public class AudioManager : Singleton<AudioManager>
         bgmSource.loop = true;
         bgmSource.volume = 0.1f;
         bgmSource.playOnAwake = false;
-        sfxSource.volume = 0.1f;
+        sfxSource.volume = 0.4f;
         sfxSource.playOnAwake = false;
 
         PlayBGM(EBGMType.MainBGM);

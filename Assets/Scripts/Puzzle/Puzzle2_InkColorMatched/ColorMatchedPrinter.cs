@@ -26,6 +26,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
     {
         if (IsCorrect())
         {
+            AudioManager.Instance.PlaySFX(ESfxType.PrinterSound);
             Debug.Log($"IsCorrect: {combinedColor}");
         }
     }

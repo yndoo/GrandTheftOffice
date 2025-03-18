@@ -5,8 +5,8 @@ using UnityEngine;
 public class CCTV : Enemy
 {
     // 회전 관련
-    public float rotationSpeed = 30f;
-    public int score = 10;
+    public float rotationSpeed = 10f;
+    public int score = 1;
     private float rotationAngle = 45f;
     private float initialRotation;
 
