@@ -45,6 +45,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1077189047864174209, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043859313004544662, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3998097806852615952, guid: 268484f717274c5468f9056becf8f82b, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
