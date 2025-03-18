@@ -10,6 +10,10 @@ public class OutTrigger : MonoBehaviour
     private DragDrop playerDragDrop; // 플레이어 드래그 앤 드롭 스크립트
     private GameObject[] collectedObjects; // 수집된 오브젝트 저장 배열
     private Button buttonScript; // 버튼 스크립트
+    
+    public bool isShowOther = false;
+    
+    public GameObject otherPrefab;
 
     private void Start()
     {
@@ -66,6 +70,12 @@ public class OutTrigger : MonoBehaviour
                     
                     // 새로운 배열에 저장
                     collectedObjects[matchedIndex] = QPrefabs[matchedIndex];
+
+                    if (isShowOther && collectedObjects.Length >= QPrefabs.Count - 1)
+                    {
+                        otherPrefab.SetActive(true);
+                        isShowOther = false;
+                    }
 
                     // 씬에서 오브젝트 삭제
                     Destroy(other.gameObject);
