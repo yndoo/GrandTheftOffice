@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteract: 0
+  isClickable: 1
+  OutTrigger: 0
   firePrefab: {fileID: 0}
 --- !u!1 &3196035694395914505
 GameObject:
@@ -131,7 +133,7 @@ GameObject:
   - component: {fileID: 3853146560122087636}
   - component: {fileID: 6302306098685920855}
   - component: {fileID: 681620934457007506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Storage box grey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3313709135826733484}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

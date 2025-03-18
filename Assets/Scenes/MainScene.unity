@@ -481,6 +481,7 @@ MonoBehaviour:
   canOut: 0
   QPrefabs:
   - {fileID: 5888027712851787545, guid: 8afa7385a261c2c4db59d31a5bc5ee69, type: 3}
+  - {fileID: 7627828872069064435, guid: 70d4d5016aacc214db8b5296b6a18b09, type: 3}
 --- !u!4 &275877900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4713316215712276, guid: fbf5b725007fd0b4eb57c499977f128d, type: 3}
@@ -745,7 +746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8452574377248066727, guid: 346e3b4b311122b44ae6296e80696fab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8511535589697400291, guid: 346e3b4b311122b44ae6296e80696fab, type: 3}
       propertyPath: Type
@@ -2357,14 +2358,6 @@ PrefabInstance:
       propertyPath: firePrefab
       value: 
       objectReference: {fileID: 1176172770}
-    - target: {fileID: 566877860062711087, guid: 27741a2dc1159437dbdca6eb582110f5, type: 3}
-      propertyPath: isClickable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196035694395914505, guid: 27741a2dc1159437dbdca6eb582110f5, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 3313709135826733484, guid: 27741a2dc1159437dbdca6eb582110f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.4639997
@@ -2408,10 +2401,6 @@ PrefabInstance:
     - target: {fileID: 5570365621934470137, guid: 27741a2dc1159437dbdca6eb582110f5, type: 3}
       propertyPath: m_Name
       value: LightBtn
-      objectReference: {fileID: 0}
-    - target: {fileID: 5570365621934470137, guid: 27741a2dc1159437dbdca6eb582110f5, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
