@@ -263,7 +263,7 @@ public class NetworkPuzzleUI : MonoBehaviour
             // 5초 후에 UI 비활성화 메서드 호출
             if (gameObject.activeSelf)
             {
-                Invoke(nameof(Hide), 5f);
+                Invoke(nameof(Hide), 1.5f);
             }
 
         }
