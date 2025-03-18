@@ -1,46 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
+public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable, I_Interactable
 {
     [SerializeField] private List<MatchingSystem> inkZone;
     [SerializeField] private Color targetColor;
     [SerializeField] private SpriteRenderer colorDisplay;
 
     private Color combinedColor;
-
+    private void Start()
+    {
+        Debug.Log($"ColorMatchedPrinter initialized on {gameObject.name}");
+    }
     public void Update()
     {
         // 매 프레임마다 색상 확인 (잉크가 올려질 때마다 바로 반영)
         FindInk();
         // 스프라이트 색상 업데이트
         UpdateColorDisplay();
-        if (Input.GetKeyDown(KeyCode.Space))// 추후 상황에 맞게 수정 필요
-        {
-            CheckAndPrint();
-        }
     }
 
     private void CheckAndPrint()
     {
+        Debug.Log("CheckAndPrint called");
         if (IsCorrect())
         {
             AudioManager.Instance.PlaySFX(ESfxType.PrinterSound);
             Debug.Log($"IsCorrect: {combinedColor}");
         }
+        else
+        {
+            Debug.Log("IsCorrect returned false");
+        }
+    }
+
+    public void OnInteract()
+    {
+        Debug.Log("OnInteract called");
+        CheckAndPrint();
+        Debug.Log("Interacted");
+    }
+
+    public string SetPrompt()
+    {
+        if (combinedColor != Color.black)
+        {
+            return "인쇄하시겠습니까?";
+        }
+        return "잉크를 넣어주세요.";
     }
 
     // 특정 위치에 있는 InkMatchingZone을 감지하고 색상 조합
     public void FindInk()
     {
         combinedColor = Color.black; // 초기화
+        Debug.Log("FindInk called");
 
         foreach (MatchingSystem zone in inkZone)
         {
             if (zone.IsMatched && zone is InkMatchingZone inkMatchingZone)
             {
                 combinedColor += inkMatchingZone.GetInkColor();
+                Debug.Log($"Ink color added: {inkMatchingZone.GetInkColor()}");
             }
         }
 
@@ -48,6 +71,8 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
         combinedColor.r = Mathf.Clamp01(combinedColor.r);
         combinedColor.g = Mathf.Clamp01(combinedColor.g);
         combinedColor.b = Mathf.Clamp01(combinedColor.b);
+
+        Debug.Log($"Combined color: {combinedColor}");
     }
 
     // 스프라이트 색상 업데이트
@@ -63,6 +88,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
     public bool IsCorrect()
     {
         // FindInk()는 매 프레임 호출되므로 여기서 다시 호출할 필요 없음
+        Debug.Log("IsCorrect called");
 
         float tolerance = 0.05f; // 허용 오차
         bool isCorrect = Mathf.Abs(combinedColor.r - targetColor.r) < tolerance &&
@@ -75,6 +101,7 @@ public class ColorMatchedPrinter : Puzzle, IPuzzleCheckable
             GetReward(); // 정답이면 종이 생성
         }
 
+        Debug.Log($"IsCorrect result: {isCorrect}");
         return isCorrect;
     }
 }

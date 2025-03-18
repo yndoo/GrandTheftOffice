@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8825348082494669022}
   - component: {fileID: 7009732123849739046}
   - component: {fileID: 685445021933798019}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InkPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 549821720011397681}
   - component: {fileID: 7770366105529289219}
   - component: {fileID: 5421410297877245941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InkPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,8 +143,7 @@ GameObject:
   - component: {fileID: 1451982925869119817}
   - component: {fileID: 8648203202883973566}
   - component: {fileID: 764704370835939513}
-  - component: {fileID: 122352118337300883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Printer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,27 +215,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &122352118337300883
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4557208797361959458}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.005256461, y: 0.003801802, z: 0.003620637}
-  m_Center: {x: 0, y: 0.00000001909211, z: 0.0017976938}
 --- !u!1 &4920912264766909806
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +225,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4650861126314394624}
   - component: {fileID: 379426662938366801}
-  m_Layer: 0
+  - component: {fileID: 1069970804899860212}
+  m_Layer: 8
   m_Name: ColorMatched Printer prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,13 +265,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Reward:
     RewardHint: {fileID: 0}
-    Score: 0
+    Score: 30
   inkZone:
   - {fileID: 685445021933798019}
   - {fileID: 5848791591951559271}
   - {fileID: 5421410297877245941}
-  targetColor: {r: 1, g: 0, b: 1, a: 0}
-  colorDisplay: {fileID: 0}
+  targetColor: {r: 1, g: 0, b: 0, a: 0}
+  colorDisplay: {fileID: 1678066944550747060}
+--- !u!65 &1069970804899860212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920912264766909806}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.52766705, y: 0.37423444, z: 0.38626862}
+  m_Center: {x: -0.004512787, y: 0.1865263, z: 0}
 --- !u!1 &8035953350708758906
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7261308665356824808}
   - component: {fileID: 1678066944550747060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CombinedColorDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 6435284805565609398}
   - component: {fileID: 9012491161732294585}
   - component: {fileID: 3517276794477689457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InkDock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 9118197709846852937}
   - component: {fileID: 9153255407211845006}
   - component: {fileID: 5848791591951559271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InkPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
