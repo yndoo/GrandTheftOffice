@@ -97,6 +97,7 @@ public class OutTrigger : MonoBehaviour
         // 버튼을 클릭 가능하게 만듦
         if (buttonScript != null)
         {
+            AudioManager.Instance.PlayBGM(EBGMType.Clear);
             buttonScript.isClickable = true;
             buttonScript.OutTrigger = true;
             Debug.Log("모든 아이템을 수집 완료! 버튼이 활성화됨.");

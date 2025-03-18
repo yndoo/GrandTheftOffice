@@ -12,8 +12,10 @@ public class GameManager : Singleton<GameManager>
     
     public int CurrentStage {  get; set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         LoadGame();    
     }
 

@@ -10,6 +10,7 @@ public class SwitchCheck : MonoBehaviour
         if(collision.gameObject.CompareTag("WeightButton"))
         {
             //Debug.Log("눌림");
+            AudioManager.Instance.PlaySFX(ESfxType.ButtonSound);
             Target.SetActive(true);
         }
     }

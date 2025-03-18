@@ -12,11 +12,11 @@ public class Interaction : MonoBehaviour
     public GameObject curInteractGameObject;
     private I_Interactable curInteractable;
 
-    private Camera camera;
+    private Camera _camera;
 
     void Start()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
     }
 
     void Update()
@@ -30,7 +30,7 @@ public class Interaction : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+        Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
