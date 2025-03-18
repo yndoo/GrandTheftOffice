@@ -11,7 +11,26 @@ public class UIManager :  Singleton<UIManager>
     [SerializeField] private GameClearUI gameClearUI;
     [SerializeField] private TextMeshProUGUI promptText; // 인터랙션 텍스트
 
+    [Header("게임 플레이 UI")]
+    [SerializeField] private TextMeshProUGUI currentScoreText; // 현재 점수 텍스트
+    [SerializeField] private TextMeshProUGUI timerText; // 타이머 텍스트
 
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        // UI 초기화
+        if (currentScoreText != null)
+        {
+            UpdateScoreUI(0);
+        }
+
+        if (timerText != null)
+        {
+            UpdateTimerUI(0);
+        }
+    }
 
     public void ShowInteractionUI(string message)
     {       
@@ -24,11 +43,74 @@ public class UIManager :  Singleton<UIManager>
         interactionPanel.SetActive(false);
     }
 
-    public void ShowGameClearUI(float clearTime, int score, bool isNewHighScore = false)
+    private void OnEnable()
+    {
+        // ScoreManager와 TimeManager 이벤트 구독
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.OnScoreChanged += UpdateScoreUI;
+        }
+
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimeUpdated += UpdateTimerUI;
+        }
+    }
+
+    private void OnDisable()
+    {
+        // 이벤트 구독 해제
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.OnScoreChanged -= UpdateScoreUI;
+        }
+
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimeUpdated -= UpdateTimerUI;
+        }
+    }
+
+    // 현재 점수 UI 업데이트
+    private void UpdateScoreUI(int score)
+    {
+        if (currentScoreText != null)
+        {
+            currentScoreText.text = "점수: " + score.ToString();
+        }
+    }
+
+    // 타이머 UI 업데이트
+    private void UpdateTimerUI(float time)
+    {
+        if (timerText != null)
+        {
+            // 시:분:초.밀리초 형식으로 표시
+            int minutes = Mathf.FloorToInt(time / 60f);
+            int seconds = Mathf.FloorToInt(time % 60f);
+            int milliseconds = Mathf.FloorToInt((time * 100f) % 100f);
+
+            timerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+        }
+    }
+    // 현재 점수와 타이머를 사용하여 게임 클리어 UI 표시 (오버로딩)
+    public void ShowGameClearUI()
     {
         if (gameClearUI != null)
         {
-            gameClearUI.ShowClearUI(clearTime, score, isNewHighScore);
+            // 타이머 정지 (이미 다른 곳에서 정지시킬 수도 있음)
+            TimeManager.Instance.StopTimer();
+
+            // 현재 점수와 시간 가져오기
+            int currentScore = ScoreManager.Instance.GetCurrentScore();
+            float clearTime = TimeManager.Instance.GetClearTime();
+
+            // 최고 점수 확인
+            bool isNewHighScore = ScoreManager.Instance.CheckAndUpdateHighScore();
+
+            // 게임 클리어 UI 표시
+            gameClearUI.ShowClearUI(clearTime, currentScore, isNewHighScore);
         }
     }
+
 }
