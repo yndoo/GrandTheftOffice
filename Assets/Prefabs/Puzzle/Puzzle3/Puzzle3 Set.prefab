@@ -41,6 +41,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2008686042580229853}
     m_Modifications:
+    - target: {fileID: 485448131755784956, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998097806852615952, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5814682088721440559, guid: 268484f717274c5468f9056becf8f82b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.37464386
@@ -81,9 +89,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129760, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129762, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129764, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129766, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129768, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129770, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129772, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129774, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129784, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129786, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129788, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087194197617129790, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8509452510457143609, guid: 268484f717274c5468f9056becf8f82b, type: 3}
       propertyPath: m_Name
       value: SendingMailPuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748533202685208659, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889443323967632444, guid: 268484f717274c5468f9056becf8f82b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
