@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &252573277165461003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8199575778389153837}
+  - component: {fileID: 2472597660113434751}
+  - component: {fileID: 1702008660789466165}
+  m_Layer: 0
+  m_Name: NetworkPuzzle-easymode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8199575778389153837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252573277165461003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 532.5, y: 299.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2472597660113434751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252573277165461003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ace6995a23be2448ae63173d6d89e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reward:
+    RewardHint: {fileID: 0}
+    Score: 40
+  nodes:
+  - id: 0
+    connections: 01000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 0
+    activationSequence: 
+    description: "\uC2DC\uC791 \uB178\uB4DC\uC785\uB2C8\uB2E4. \uC774\uBBF8 \uD65C\uC131\uD654\uB418\uC5B4
+      \uC788\uC2B5\uB2C8\uB2E4."
+  - id: 1
+    connections: 000000000200000003000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 1
+    activationSequence: 
+    description: "\uC774 \uB178\uB4DC\uB97C \uD65C\uC131\uD654\uD558\uBA74 \uB2E4\uC74C
+      \uB178\uB4DC\uB85C \uC9C4\uD589\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  - id: 2
+    connections: 0100000004000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 1
+    activationSequence: 
+    description: "\uC774 \uACBD\uB85C\uB97C \uD1B5\uD574 \uB178\uB4DC 4(\uD1A0\uAE00
+      \uB178\uB4DC)\uB85C \uC9C4\uD589\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4"
+  - id: 3
+    connections: 0100000005000000
+    isActive: 0
+    nodeType: 3
+    affectedNodes: 0500000006000000
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: "\uC99D\uD3ED \uB178\uB4DC\uC785\uB2C8\uB2E4. \uD65C\uC131\uD654\uD558\uBA74
+      \uB178\uB4DC 5\uC640 6\uC758 \uC5D0\uB108\uC9C0 \uBE44\uC6A9\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  - id: 4
+    connections: 0200000006000000
+    isActive: 0
+    nodeType: 5
+    affectedNodes: 07000000
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: "\uD1A0\uAE00 \uB178\uB4DC\uC785\uB2C8\uB2E4. \uD65C\uC131\uD654\uD558\uBA74
+      \uB178\uB4DC 7\uC758 \uC0C1\uD0DC\uAC00 \uBC18\uC804\uB429\uB2C8\uB2E4."
+  - id: 5
+    connections: 0300000008000000
+    isActive: 0
+    nodeType: 6
+    affectedNodes: 
+    timerDuration: 10
+    energyCost: 3
+    activationSequence: 
+    description: "\uD0C0\uC774\uBA38 \uB178\uB4DC\uC785\uB2C8\uB2E4. \uD65C\uC131\uD654
+      \uD6C4 10\uCD08 \uB0B4\uC5D0 \uB178\uB4DC 7\uC744 \uD65C\uC131\uD654\uD574\uC57C
+      \uD569\uB2C8\uB2E4."
+  - id: 6
+    connections: 0400000008000000
+    isActive: 0
+    nodeType: 4
+    affectedNodes: 07000000
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: "\uCC28\uB2E8 \uB178\uB4DC\uC785\uB2C8\uB2E4. \uD65C\uC131\uD654\uD558\uBA74
+      \uB178\uB4DC 7\uC774 \uD65C\uC131\uD654\uB418\uC9C0 \uBABB\uD569\uB2C8\uB2E4"
+  - id: 7
+    connections: 0500000008000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 3
+    activationSequence: 0300000005000000
+    description: "\uD2B9\uC218 \uC870\uAC74 \uB178\uB4DC\uC785\uB2C8\uB2E4. \uB178\uB4DC
+      3\u21925 \uC21C\uC11C\uB85C \uD65C\uC131\uD654\uB41C \uC0C1\uD0DC\uC5D0\uC11C\uB9CC
+      \uD65C\uC131\uD654\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  - id: 8
+    connections: 0600000007000000
+    isActive: 0
+    nodeType: 0
+    affectedNodes: 
+    timerDuration: 5
+    energyCost: 2
+    activationSequence: 
+    description: "\uBAA9\uD45C \uB178\uB4DC\uC785\uB2C8\uB2E4. \uC774 \uB178\uB4DC\uB97C
+      \uD65C\uC131\uD654\uD558\uBA74 \uD37C\uC990\uC774 \uD574\uACB0\uB429\uB2C8\uB2E4!"
+  startNodeIds: 00000000
+  targetNodeIds: 08000000
+  availableEnergy: 10
+  puzzleTimeLimit: 30
+--- !u!114 &1702008660789466165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252573277165461003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e1cf0ea196c3149861c3487fbc8b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
