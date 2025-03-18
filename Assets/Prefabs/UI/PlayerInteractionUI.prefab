@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 6911764105683221275}
   - component: {fileID: 3939993790631952459}
   m_Layer: 5
-  m_Name: Score (1)
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,17 +772,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4222707889425402282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4663212714868097412}
-  m_Father: {fileID: 6329963224873686344}
+  m_Father: {fileID: 3697775325010321541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 490.05643}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6911764105683221275
@@ -1196,6 +1196,43 @@ MonoBehaviour:
   m_Spacing: {x: 200, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &5540140550479311247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3697775325010321541}
+  m_Layer: 5
+  m_Name: GamePlayUIcontainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3697775325010321541
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540140550479311247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8136989138429243142}
+  - {fileID: 3207409705559785869}
+  m_Father: {fileID: 6329963224873686344}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5940301348375920988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1328,6 @@ MonoBehaviour:
   scoreText: {fileID: 6467922695581414182}
   timeText: {fileID: 8802810938941021243}
   highScoreText: {fileID: 2402862046088728618}
-  restartButton: {fileID: 0}
   MainButton: {fileID: 4471171735879264109}
 --- !u!1 &6372363687033967592
 GameObject:
@@ -1649,17 +1685,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7512775037859369699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7833296518610091574}
-  m_Father: {fileID: 6329963224873686344}
+  m_Father: {fileID: 3697775325010321541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 909.9999, y: 490.05643}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &8979843669339395527
@@ -1866,8 +1902,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8136989138429243142}
-  - {fileID: 3207409705559785869}
+  - {fileID: 3697775325010321541}
   - {fileID: 4892397225919814286}
   - {fileID: 4048836090616449002}
   m_Father: {fileID: 0}
@@ -1955,8 +1990,14 @@ MonoBehaviour:
   interactionPanel: {fileID: 438183836684135745}
   gameClearUI: {fileID: 3489309226344484503}
   promptText: {fileID: 372018829021871528}
-  currentScoreText: {fileID: 263664615000311810}
-  timerText: {fileID: 7118274101623233973}
+  gameplayUIContainer: {fileID: 5540140550479311247}
+  currentScoreText: {fileID: 7118274101623233973}
+  timerText: {fileID: 263664615000311810}
+  hideCursorDuringGameplay: 1
+  autoStartGameScenes:
+  - MainScene
+  - SecondScene
+  - ThirdScene
 --- !u!1 &8624951164389912093
 GameObject:
   m_ObjectHideFlags: 0
