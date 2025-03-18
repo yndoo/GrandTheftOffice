@@ -123,6 +123,27 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &11945823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2757238816122868449, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+  m_PrefabInstance: {fileID: 1708601463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &11945829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11945823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8e5349533a4a689bf6dabc4b71f4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpened: 0
+  openAngle: -90
+  closeAngle: 0
+  rotationSpeed: 2
 --- !u!1001 &75434841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1466,6 +1487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7557040546905634059, guid: 2467671270da7c64b92ac3aa93e9fc27, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7588925791512896045, guid: 2467671270da7c64b92ac3aa93e9fc27, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1764,6 +1789,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeetingRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 218491263708832976, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      propertyPath: door_in_use
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 359573479160367968, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 359573479160367968, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359573479160367968, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359573479160367968, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359573479160367968, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9084633921256053234, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.7876096
@@ -1807,7 +1856,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4763903445451099845, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2022167280}
+    - targetCorrespondingSourceObject: {fileID: 2757238816122868449, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 11945829}
   m_SourcePrefab: {fileID: 100100000, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
 --- !u!1 &1735694230 stripped
 GameObject:
@@ -2042,6 +2097,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2453676911334023576, guid: 8afa7385a261c2c4db59d31a5bc5ee69, type: 3}
   m_PrefabInstance: {fileID: 2005732570}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2022167274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4763903445451099845, guid: 5f9ab5da99663c44db2f67123703eb5f, type: 3}
+  m_PrefabInstance: {fileID: 1708601463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2022167280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022167274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8e5349533a4a689bf6dabc4b71f4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpened: 0
+  openAngle: 90
+  closeAngle: 0
+  rotationSpeed: 2
 --- !u!1 &2026290309
 GameObject:
   m_ObjectHideFlags: 0

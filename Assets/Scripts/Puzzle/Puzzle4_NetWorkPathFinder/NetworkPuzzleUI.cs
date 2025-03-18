@@ -20,6 +20,9 @@ public class NetworkPuzzleUI : MonoBehaviour
     [SerializeField] private Image timerFillImage;              // 타이머 진행 표시 이미지
     [SerializeField] private GameObject energyPanel;            // 에너지 정보 패널
     [SerializeField] private GameObject timerPanel;             // 타이머 정보 패널
+    
+    [Header("Clear Puzzle")]
+    [SerializeField] private List<GameObject> clearPuzzleObjects;
 
     private Dictionary<int, NodeUI> nodeUIElements = new Dictionary<int, NodeUI>();
     private List<LineRenderer> connectionLines = new List<LineRenderer>();
@@ -235,6 +238,18 @@ public class NetworkPuzzleUI : MonoBehaviour
             statusText.text = "Puzzle Sucess!";
             statusText.color = Color.green;
             puzzleController.GetReward();
+            
+            foreach (GameObject obj in clearPuzzleObjects)
+            {
+                if (obj != null)
+                {
+                    OpenDoor door = obj.GetComponent<OpenDoor>();
+                    if (door != null)
+                    {
+                        door.ToggleDoor();
+                    }
+                }
+            }
 
             // 코루틴 정지 (필요한 경우)
             if (uiUpdateCoroutine != null)
