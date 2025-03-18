@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FileOrganization : Puzzle, IPuzzleCheckable
 {
+    public AudioClip putClip;
+    public AudioSource audioSource;
+
     List<MatchingZone> matchingZones;
 
     private void Awake()
@@ -14,6 +18,18 @@ public class FileOrganization : Puzzle, IPuzzleCheckable
             matchingZones.Add(zone);
         }
     }
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PutInFolder() //사운드
+    {
+        audioSource.PlayOneShot(putClip);
+
+    }
+
 
     public bool IsCorrect()
     {

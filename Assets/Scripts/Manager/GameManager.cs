@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+
+    public AudioSource audioSource;
+    public AudioClip putClip;
     public GameData CurrentGameData {  get; private set; }
     public int LastClearedStage {  get; set; }
     
@@ -17,6 +20,12 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// 세이브데이터를 로드
     /// </summary>
+    /// 
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+        audioSource = GetComponent<AudioSource>();
+    }
     public void LoadGame()
     {
         CurrentGameData = DataManager.LoadData<GameData>("/SaveData");
