@@ -10,14 +10,12 @@ public class GameClearUI : UIBase
     [SerializeField] private TextMeshProUGUI scoreText; // 점수 텍스트
     [SerializeField] private TextMeshProUGUI timeText; // 시간 텍스트
     [SerializeField] private TextMeshProUGUI highScoreText; // 최고 점수 텍스트
-    [SerializeField] private UnityEngine.UI.Button restartButton; // 다시 시작 버튼
     [SerializeField] private UnityEngine.UI.Button MainButton; // 메인 버튼
 
     protected override void Awake()
     {
         base.Awake();
         // 버튼 리스너 추가
-        if (restartButton != null) restartButton.onClick.AddListener(OnRestartButtonClicked);
         if (MainButton != null) MainButton.onClick.AddListener(OnMainButtonClicked);
     }
 
@@ -29,8 +27,6 @@ public class GameClearUI : UIBase
             ScoreManager.Instance.OnScoreChanged += UpdateScoreText;
             ScoreManager.Instance.OnHighScoreChanged += UpdateHighScoreText;
         }
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     private void OnDisable()
@@ -126,21 +122,11 @@ public class GameClearUI : UIBase
         }
     }
 
-    private void OnRestartButtonClicked()
-    {
-        // 다시 시작 버튼 클릭 시 실행
-        // 여기에 게임 재시작 로직 추가
-        Debug.Log("재시작 버튼 클릭됨");
-        // 게임 재시작 시 점수 초기화
-        ScoreManager.Instance.ResetScore();
-        // UI 숨기기
-        Hide();
-    }
-
     private void OnMainButtonClicked()
     {
         // 메인 버튼 클릭 시 실행
         // 여기에 메인 메뉴로 이동하는 로직 추가
+        UIManager.Instance.IsUIActive = false;
         Debug.Log("메인 버튼 클릭됨");
         // UI 숨기기
         Hide();

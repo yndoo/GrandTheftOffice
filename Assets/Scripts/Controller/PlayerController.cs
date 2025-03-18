@@ -38,12 +38,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        if (!UIManager.Instance.IsUIActive)
+        {
+            Move();
+            return;
+        }
+
     }
 
     private void LateUpdate()
     {
-        CameraLook();
+        if (!UIManager.Instance.IsUIActive) {
+            CameraLook();
+            return;
+        }
     }
 
     private void Move()
@@ -66,6 +74,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (UIManager.Instance.IsUIActive) return;
         if (context.phase == InputActionPhase.Performed)
         {
             curMovementInput = context.ReadValue<Vector2>();
@@ -83,10 +92,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (UIManager.Instance.IsUIActive) return;
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
         }
+        
     }
 
     bool IsGrounded()

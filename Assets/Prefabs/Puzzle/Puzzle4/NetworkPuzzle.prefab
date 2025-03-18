@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3489121834417622808}
   - component: {fileID: 7119836112000289962}
-  - component: {fileID: 4903704665635610559}
   m_Layer: 0
   m_Name: NetworkPuzzle
   m_TagString: Untagged
@@ -134,16 +133,3 @@ MonoBehaviour:
   targetNodeIds: 08000000
   availableEnergy: 10
   puzzleTimeLimit: 30
---- !u!114 &4903704665635610559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109135988766887222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91e1cf0ea196c3149861c3487fbc8b34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
