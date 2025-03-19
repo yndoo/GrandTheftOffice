@@ -1467,6 +1467,30 @@ PrefabInstance:
       propertyPath: autoStartGameScenes.Array.data[3]
       value: ThirdScene
       objectReference: {fileID: 0}
+    - target: {fileID: 2116717750443396893, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116717750443396893, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116717750443396893, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116717750443396893, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116717750443396893, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 580
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116717750443396893, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -570
+      objectReference: {fileID: 0}
     - target: {fileID: 2402862046088728618, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1475,9 +1499,61 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2521795585241646745, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521795585241646745, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521795585241646745, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521795585241646745, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521795585241646745, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 580
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521795585241646745, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -350
+      objectReference: {fileID: 0}
     - target: {fileID: 4222707889425402282, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
       propertyPath: m_Name
       value: Timerpanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907987102940980325, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907987102940980325, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907987102940980325, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907987102940980325, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907987102940980325, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 580
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907987102940980325, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940301348375920988, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6329963224873686344, guid: 1d19730af609bf34dbe217f34afd0cd4, type: 3}
       propertyPath: m_Pivot.x

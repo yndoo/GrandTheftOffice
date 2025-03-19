@@ -128,7 +128,7 @@ public class UIManager : Singleton<UIManager>
         // 인터랙션 UI 초기 상태
         if (interactionPanel != null)
         {
-            interactionPanel.SetActive(false);
+            //interactionPanel.SetActive(false);
         }
 
         Debug.Log("UI 상태가 갱신되었습니다. 게임 시작 상태: " + isGameStarted);
