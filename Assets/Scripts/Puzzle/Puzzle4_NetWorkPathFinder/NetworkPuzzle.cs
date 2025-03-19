@@ -53,7 +53,7 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
     private void PuzzleTimedOut()
     {
         isTimerActive = false;
-        Debug.Log("Time Out!!");
+        
         ResetPuzzle();
 
     }
@@ -85,7 +85,7 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
             {
                 ToggleNode(nodeId); // 노드 비활성화
                 timerNodes.Remove(nodeId);
-                Debug.Log($"타이머 종료: 노드 {nodeId} 자동 비활성화");
+                
             }
 
             yield return null;
@@ -103,14 +103,14 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
             // 에너지 비용 확인
             if (usedEnergy + node.energyCost > availableEnergy)
             {
-                Debug.Log($"에너지 부족: 노드 {nodeId} 활성화에 필요한 에너지 {node.energyCost}, 남은 에너지 {availableEnergy - usedEnergy}");
+                
                 return;
             }
 
             // 차단 상태 확인
             if (node.IsBlocked(nodes, activeNodes))
             {
-                Debug.Log($"노드 {nodeId}는 다른 차단 노드에 의해 활성화 불가");
+                
                 return;
             }
 
@@ -162,18 +162,18 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
                     }
                 }
 
-                Debug.Log($"노드 {nodeId} 활성화됨");
+                
             }
             else
             {
-                Debug.Log($"노드 {nodeId}는 활성화 조건을 충족하지 않음");
+                
             }
         }
         else // 비활성화 시도
         {
             if (startNodeIds.Contains(nodeId))
             {
-                Debug.Log($"[ToggleNode] 노드 {nodeId}는 시작 노드이므로 비활성화 불가");
+                
                 return; // 시작 노드는 비활성화 불가
             }
 
@@ -187,13 +187,13 @@ public class NetworkPuzzle : Puzzle, IPuzzleCheckable
                 timerNodes.Remove(nodeId);
             }
 
-            Debug.Log($"[ToggleNode] 노드 {nodeId} 비활성화됨");
+           
 
             // 비활성화 후 네트워크 상태 갱신 (연결이 끊어진 노드들을 자동 비활성화)
             UpdateNetworkState();
         }
 
-        Debug.Log($"[ToggleNode] 노드 {nodeId} 최종 상태: {(node.isActive ? "활성화" : "비활성화")}");
+        
     }
 
     public bool CanActivate(int nodeId)
