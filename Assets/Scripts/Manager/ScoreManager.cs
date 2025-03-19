@@ -53,6 +53,7 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         PlayerPrefs.SetInt(HIGH_SCORE_KEY, _highScore);
         PlayerPrefs.Save();
+    }
         
 
     // 현재 점수가 최고 점수인지 확인하고 갱신
