@@ -1629,8 +1629,9 @@ MonoBehaviour:
     m_Bits: 512
   canOut: 0
   QPrefabs:
-  - {fileID: 5888027712851787545, guid: 8afa7385a261c2c4db59d31a5bc5ee69, type: 3}
-  - {fileID: 7627828872069064435, guid: 70d4d5016aacc214db8b5296b6a18b09, type: 3}
+  - {fileID: 1038491273}
+  isShowOther: 0
+  otherPrefab: {fileID: 0}
 --- !u!1001 &1358467653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2245,15 +2246,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2453676911334023576, guid: 8afa7385a261c2c4db59d31a5bc5ee69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.073
+      value: 2.586
       objectReference: {fileID: 0}
     - target: {fileID: 2453676911334023576, guid: 8afa7385a261c2c4db59d31a5bc5ee69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.061
+      value: -0.329
       objectReference: {fileID: 0}
     - target: {fileID: 2453676911334023576, guid: 8afa7385a261c2c4db59d31a5bc5ee69, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.195
+      value: 1.696
       objectReference: {fileID: 0}
     - target: {fileID: 2453676911334023576, guid: 8afa7385a261c2c4db59d31a5bc5ee69, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2333,8 +2334,11 @@ MonoBehaviour:
   interactionPanel: {fileID: 1656380045}
   gameClearUI: {fileID: 727425661}
   promptText: {fileID: 1901817939}
+  gameplayUIContainer: {fileID: 0}
   currentScoreText: {fileID: 368484801}
   timerText: {fileID: 860351058}
+  hideCursorDuringGameplay: 1
+  autoStartGameScenes: []
 --- !u!4 &2018288147
 Transform:
   m_ObjectHideFlags: 0
