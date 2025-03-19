@@ -127,7 +127,7 @@ public class GameClearUI : UIBase
         // 메인 버튼 클릭 시 실행
         // 여기에 메인 메뉴로 이동하는 로직 추가
         UIManager.Instance.IsUIActive = false;
-        Debug.Log("메인 버튼 클릭됨");
+        
         // UI 숨기기
         Hide();
         TimeManager.Instance.ResetTimer();
