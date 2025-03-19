@@ -32,7 +32,7 @@ public class UIManager : Singleton<UIManager>
         base.Awake();
 
         // UI 참조 초기화
-        RefreshUIReferences();
+        //RefreshUIReferences();
         IsUIActive = false;
         // 씬 로드 이벤트 리스너 등록
         UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
@@ -50,7 +50,7 @@ public class UIManager : Singleton<UIManager>
         // UI 갱신이 필요한 경우 실행
         if (needsUIRefresh)
         {
-            //RefreshUIReferences();
+            RefreshUIReferences();
             UpdateUIState();
             //needsUIRefresh = false;
         }
@@ -62,17 +62,17 @@ public class UIManager : Singleton<UIManager>
         // 참조가 null인 경우에만 찾기
         if (interactionPanel == null)
         {
-            interactionPanel = GameObject.FindWithTag("InteractionPanel");
+            interactionPanel = GameObject.Find("InteractionPanel");
         }
 
         if (gameplayUIContainer == null)
         {
-            gameplayUIContainer = GameObject.FindWithTag("GameplayUI");
+            gameplayUIContainer = GameObject.Find("GameplayUI");
         }
 
         if (currentScoreText == null)
         {
-            GameObject scoreObj = GameObject.FindWithTag("ScoreText");
+            GameObject scoreObj = GameObject.Find("ScoreText");
             if (scoreObj != null)
             {
                 currentScoreText = scoreObj.GetComponent<TextMeshProUGUI>();
@@ -81,7 +81,7 @@ public class UIManager : Singleton<UIManager>
 
         if (timerText == null)
         {
-            GameObject timerObj = GameObject.FindWithTag("TimerText");
+            GameObject timerObj = GameObject.Find("TimerText");
             if (timerObj != null)
             {
                 timerText = timerObj.GetComponent<TextMeshProUGUI>();
@@ -90,7 +90,7 @@ public class UIManager : Singleton<UIManager>
 
         if (gameClearUI == null)
         {
-            GameObject clearUIObj = GameObject.FindWithTag("GameClearUI");
+            GameObject clearUIObj = GameObject.Find("GameClearUI");
             if (clearUIObj != null)
             {
                 gameClearUI = clearUIObj.GetComponent<GameClearUI>();
@@ -179,14 +179,11 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowInteractionUI(string message)
     {
-        if (interactionPanel == null)
-        {
-            RefreshUIReferences();
-        }
 
         if (interactionPanel != null)
         {
             interactionPanel.SetActive(true);
+            Debug.Log("인터랙션 UI 표시됨");
 
             if (promptText != null)
             {
@@ -200,6 +197,7 @@ public class UIManager : Singleton<UIManager>
         if (interactionPanel != null)
         {
             interactionPanel.SetActive(false);
+            Debug.Log("인터랙션 UI 숨김");
         }
     }
 
@@ -328,7 +326,7 @@ public class UIManager : Singleton<UIManager>
     public void OnSceneTransition()
     {
         // 참조 갱신
-        RefreshUIReferences();
+        //RefreshUIReferences();
 
         // 게임플레이 UI 비활성화
         if (gameplayUIContainer != null)
@@ -361,7 +359,7 @@ public class UIManager : Singleton<UIManager>
     {
         if (gameClearUI == null)
         {
-            RefreshUIReferences();
+            //RefreshUIReferences();
         }
 
         if (gameClearUI != null)
