@@ -29,7 +29,7 @@ public class TimeManager : Singleton<TimeManager>
     {
         gameStartTime = Time.time;
         isTimerRunning = true;
-        Debug.Log("타이머 시작됨");
+        
     }
 
     public void StopTimer()
@@ -38,7 +38,7 @@ public class TimeManager : Singleton<TimeManager>
         {
             isTimerRunning = false;
             gameClearTime = currentTime;
-            Debug.Log($"타이머 정지: {gameClearTime:F2}초");
+            
         }
     }
 
@@ -58,6 +58,6 @@ public class TimeManager : Singleton<TimeManager>
         currentTime = 0f;
         gameStartTime = 0f;
         gameClearTime = 0f;
-        Debug.Log("타이머 리셋됨");
+        
     }
 }

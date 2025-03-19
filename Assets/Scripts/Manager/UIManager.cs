@@ -102,7 +102,7 @@ public class UIManager : Singleton<UIManager>
             promptText = interactionPanel.GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        Debug.Log("UI 참조가 갱신되었습니다.");
+        
     }
 
     // 현재 게임 상태에 따라 UI 갱신
@@ -128,10 +128,10 @@ public class UIManager : Singleton<UIManager>
         // 인터랙션 UI 초기 상태
         if (interactionPanel != null)
         {
-            interactionPanel.SetActive(false);
+            //interactionPanel.SetActive(false);
         }
 
-        Debug.Log("UI 상태가 갱신되었습니다. 게임 시작 상태: " + isGameStarted);
+        
     }
 
     // 씬이 로드될 때마다 호출되는 메서드
@@ -157,7 +157,7 @@ public class UIManager : Singleton<UIManager>
         {
             // 자동 시작 씬이면 게임 시작
             StartGame(true);
-            Debug.Log($"씬 '{sceneName}'에서 게임이 자동으로 시작되었습니다.");
+            
         }
         else if (isGameStarted)
         {
@@ -183,7 +183,7 @@ public class UIManager : Singleton<UIManager>
         if (interactionPanel != null)
         {
             interactionPanel.SetActive(true);
-            Debug.Log("인터랙션 UI 표시됨");
+            
 
             if (promptText != null)
             {
@@ -197,7 +197,7 @@ public class UIManager : Singleton<UIManager>
         if (interactionPanel != null)
         {
             interactionPanel.SetActive(false);
-            Debug.Log("인터랙션 UI 숨김");
+            
         }
     }
 
@@ -260,7 +260,7 @@ public class UIManager : Singleton<UIManager>
             int seconds = Mathf.FloorToInt(time % 60f);
             int milliseconds = Mathf.FloorToInt((time * 100f) % 100f);
             timerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
-            Debug.Log("타이머확인");
+            
         }
     }
 
@@ -386,7 +386,7 @@ public class UIManager : Singleton<UIManager>
         else
         {
             IsUIActive = false;
-            Debug.LogError("GameClearUI를 찾을 수 없습니다!");
+            
         }
     }
 
@@ -409,7 +409,7 @@ public class UIManager : Singleton<UIManager>
         }
         else
         {
-            Debug.LogWarning("SceneManager 인스턴스가 없습니다. Unity SceneManager를 사용합니다.");
+            
             // Unity의 내장 SceneManager를 대체로 사용
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }

@@ -38,14 +38,14 @@ public class ScoreManager : Singleton<ScoreManager>
 
         // 추가 초기화 코드
         UpdateScoreUI();
-        Debug.Log("스코어매니저 초기화");
+        
     }
 
     // 최고 점수 로드
     private void LoadHighScore()
     {
         _highScore = PlayerPrefs.GetInt(HIGH_SCORE_KEY, 0);
-        Debug.Log($"최고 점수 로드: {_highScore}");
+       
     }
 
     // 최고 점수 저장
@@ -53,8 +53,8 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         PlayerPrefs.SetInt(HIGH_SCORE_KEY, _highScore);
         PlayerPrefs.Save();
-        Debug.Log($"최고 점수 저장: {_highScore}");
     }
+        
 
     // 현재 점수가 최고 점수인지 확인하고 갱신
     public bool CheckAndUpdateHighScore()
@@ -80,7 +80,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
         // 이벤트 발생
         OnScoreChanged?.Invoke(_currentScore);
-        Debug.Log($"Score added: {amount}. Total score: {_currentScore}");
+        
     }
 
     public void SubtractScore(int amount)
@@ -89,13 +89,13 @@ public class ScoreManager : Singleton<ScoreManager>
         if (_currentScore <= 0)
         {
             _currentScore = 0;
-            Debug.Log("점수가 0 이하로 내려갈 수 없습니다.");
+            
         }
         // UI 업데이트
         UpdateScoreUI();
         // 이벤트 발생
         OnScoreChanged?.Invoke(_currentScore);
-        Debug.Log($"Score subtracted: {amount}. Total score: {_currentScore}");
+        
     }
 
     // 점수 초기화 메서드
@@ -140,6 +140,6 @@ public class ScoreManager : Singleton<ScoreManager>
         _highScore = 0;
         SaveHighScore();
         OnHighScoreChanged?.Invoke(_highScore);
-        Debug.Log("최고 점수 초기화");
+        
     }
 }

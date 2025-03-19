@@ -55,18 +55,22 @@ public class DragDrop : MonoBehaviour
 
     public void OnPickupInput(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started )
+        if(!UIManager.Instance.IsUIActive)
         {
-            if (isHolding)
+            if (context.phase == InputActionPhase.Started)
             {
-                Drop();              
+                if (isHolding)
+                {
+                    Drop();
+                }
+                else
+                {
+                    Pickup();
+                }
+                WorldUIClick();
             }
-            else
-            {
-                Pickup();
-            }
-            WorldUIClick();
         }
+        
     }
  
     public void Drop()
