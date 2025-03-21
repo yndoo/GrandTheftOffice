@@ -7,6 +7,17 @@
 🔹 **퍼즐 해결 & 문서 탈취 미션**  
 🔹 **보안 시스템을 피해 몰래 이동**  
 
+### 퍼즐 
+| 물리 버튼 | 조색 퍼즐 | 논리 퍼즐 |
+|:---:|:---:|:---:|
+| ![weight](https://github.com/user-attachments/assets/68b21c7d-870c-494a-8b1f-4360bf2d15b7) | ![color](https://github.com/user-attachments/assets/1804ecfc-63f9-48c6-85a6-e0ee59c6620b) | ![스크린샷 2025-03-19 103535](https://github.com/user-attachments/assets/a4bc5d95-57d7-4f18-8206-5e0a5e576693) |
+| 물리적인 힘에 의해 눌리는 버튼 | 목표 색상을 출력하도록 잉크 색상을 조합 | 논리적인 풀이법이 있는 퍼즐 | 
+
+### 탈출 요소 
+| CCTV | 탈취 |
+|:---:|:---:|
+| ![cctv](https://github.com/user-attachments/assets/87d6d249-4b9a-48fa-ba02-018086e057f4) | ![escape](https://github.com/user-attachments/assets/71ea7907-4362-4522-b214-06ec17fb4730) |
+| CCTV에 보여지면 경고음을 울리고 점수 차감 | 훔칠 물건을 모두 모으면 탈출 가능|
 ---
 
 ## 🛠️ 게임 특징
