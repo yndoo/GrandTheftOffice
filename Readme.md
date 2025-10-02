@@ -55,6 +55,7 @@
   - 
 
 ## **📄 파일 구조**
+<img width="1626" height="664" alt="image" src="https://github.com/user-attachments/assets/4f31e77a-da38-4ced-b7f9-92f8a2f77520" />
 
 - **Assets/**: 게임 리소스 (프리팹, 스크립트, 씬 파일 등)
 - **Scripts/**: 게임의 주요 C# 스크립트들
